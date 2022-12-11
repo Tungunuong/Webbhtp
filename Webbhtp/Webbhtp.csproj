@@ -1,0 +1,965 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6BF8E55B-9CC5-4FD1-8AAB-F0DB420EFC81}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Webbhtp</RootNamespace>
+    <AssemblyName>Webbhtp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44317</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="banhangthucpham18.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>banhangthucpham18.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="banhangthucpham18.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="banhangthucpham18.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>banhangthucpham18.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Content\AboutController.cs" />
+    <Compile Include="Content\BlogController.cs" />
+    <Compile Include="Content\Blog_singleController.cs" />
+    <Compile Include="Content\cartController.cs" />
+    <Compile Include="Content\CheckoutController.cs" />
+    <Compile Include="Content\ContactController.cs" />
+    <Compile Include="Content\Login\LoginController.cs" />
+    <Compile Include="Content\product_singleController.cs" />
+    <Compile Include="Content\ShopController.cs" />
+    <Compile Include="Content\wishlistController.cs" />
+    <Compile Include="Controllers\Blog.cs" />
+    <Compile Include="Controllers\Blog_single.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\News.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\Producthome.cs" />
+    <Compile Include="Controllers\Slidehome.cs" />
+    <Compile Include="Controllers\Subscribe.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb\Subscribe.cs" />
+    <Compile Include="tb_About.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_Adv.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_Blog.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_Cart.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_Comment_Home.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_Contact.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_Menu.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_News.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_Order.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_OrderDetail.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_Product.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_ProductHome.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_ProductSingle.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_Setting.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_ShopMenu.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_ShopNow_Home.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_Slide.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_Subscribe.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_Wishlist.cs">
+      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="banhangthucpham18.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>banhangthucpham18.Context.cs</LastGenOutput>
+      <DependentUpon>banhangthucpham18.edmx</DependentUpon>
+    </Content>
+    <Content Include="banhangthucpham18.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>banhangthucpham18.edmx</DependentUpon>
+      <LastGenOutput>banhangthucpham18.cs</LastGenOutput>
+    </Content>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\ajax-loader.gif" />
+    <Content Include="Content\css\animate.css" />
+    <Content Include="Content\css\aos.css" />
+    <Content Include="Content\css\bootstrap-datepicker.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-grid.css" />
+    <Content Include="Content\css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="Content\css\css\bootstrap-reboot.css" />
+    <Content Include="Content\css\css\mixins\_text-hide.css" />
+    <Content Include="Content\css\flaticon.css" />
+    <Content Include="Content\css\icomoon.css" />
+    <Content Include="Content\css\ionicons.min.css" />
+    <Content Include="Content\css\jquery.timepicker.css" />
+    <Content Include="Content\css\magnific-popup.css" />
+    <Content Include="Content\css\open-iconic-bootstrap.min.css" />
+    <Content Include="Content\css\owl.carousel.min.css" />
+    <Content Include="Content\css\owl.theme.default.min.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\fonts\ElegantIcons.svg" />
+    <Content Include="Content\fonts\flaticon\backup.txt" />
+    <Content Include="Content\fonts\flaticon\font\flaticon.css" />
+    <Content Include="Content\fonts\flaticon\font\flaticon.html" />
+    <Content Include="Content\fonts\flaticon\font\Flaticon.svg" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\icomoon\icomoon.svg" />
+    <Content Include="Content\fonts\ionicons\css\ionicons.min.css" />
+    <Content Include="Content\fonts\ionicons\fonts\ionicons.svg" />
+    <Content Include="Content\fonts\open-iconic\open-iconic.svg" />
+    <Content Include="Content\images\about.jpg" />
+    <Content Include="Content\images\bg_1.jpg" />
+    <Content Include="Content\images\bg_2.jpg" />
+    <Content Include="Content\images\bg_3.jpg" />
+    <Content Include="Content\images\category-1.jpg" />
+    <Content Include="Content\images\category-2.jpg" />
+    <Content Include="Content\images\category-4.jpg" />
+    <Content Include="Content\images\category.jpg" />
+    <Content Include="Content\images\ctr3.jpg" />
+    <Content Include="Content\images\image_1.jpg" />
+    <Content Include="Content\images\image_2.jpg" />
+    <Content Include="Content\images\image_3.jpg" />
+    <Content Include="Content\images\image_4.jpg" />
+    <Content Include="Content\images\image_5.jpg" />
+    <Content Include="Content\images\image_6.jpg" />
+    <Content Include="Content\images\news_1.jpg" />
+    <Content Include="Content\images\news_2.jpg" />
+    <Content Include="Content\images\news_3.jpg" />
+    <Content Include="Content\images\news_4.jpeg" />
+    <Content Include="Content\images\news_5.jpg" />
+    <Content Include="Content\images\partner-1.png" />
+    <Content Include="Content\images\partner-2.png" />
+    <Content Include="Content\images\partner-3.png" />
+    <Content Include="Content\images\partner-4.png" />
+    <Content Include="Content\images\partner-5.png" />
+    <Content Include="Content\images\person_1.jpg" />
+    <Content Include="Content\images\person_2.jpg" />
+    <Content Include="Content\images\person_3.jpg" />
+    <Content Include="Content\images\person_4.jpg" />
+    <Content Include="Content\images\product-1.jpg" />
+    <Content Include="Content\images\product-10.jpg" />
+    <Content Include="Content\images\product-11.jpg" />
+    <Content Include="Content\images\product-12.jpg" />
+    <Content Include="Content\images\product-2.jpg" />
+    <Content Include="Content\images\product-3.jpg" />
+    <Content Include="Content\images\product-4.jpg" />
+    <Content Include="Content\images\product-5.jpg" />
+    <Content Include="Content\images\product-6.jpg" />
+    <Content Include="Content\images\product-7.jpg" />
+    <Content Include="Content\images\product-8.jpg" />
+    <Content Include="Content\images\product-9.jpg" />
+    <Content Include="Content\js\aos.js" />
+    <Content Include="Content\js\bootstrap-datepicker.js" />
+    <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\contact_custom.js" />
+    <Content Include="Content\js\google-map.js" />
+    <Content Include="Content\js\jquery-3.2.1.min.js" />
+    <Content Include="Content\js\jquery-3.3.1.min.js" />
+    <Content Include="Content\js\jquery-migrate-3.0.1.min.js" />
+    <Content Include="Content\js\jquery-ui.js" />
+    <Content Include="Content\js\jquery-ui.min.js" />
+    <Content Include="Content\js\jquery.animateNumber.min.js" />
+    <Content Include="Content\js\jquery.easing.1.3.js" />
+    <Content Include="Content\js\jquery.magnific-popup.min.js" />
+    <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\jquery.nice-select.min.js" />
+    <Content Include="Content\js\jquery.slicknav.js" />
+    <Content Include="Content\js\jquery.stellar.min.js" />
+    <Content Include="Content\js\jquery.waypoints.min.js" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\mixitup.min.js" />
+    <Content Include="Content\js\owl.carousel.min.js" />
+    <Content Include="Content\js\popper.min.js" />
+    <Content Include="Content\js\range.js" />
+    <Content Include="Content\js\scrollax.min.js" />
+    <Content Include="Content\Login\script.js" />
+    <Content Include="Content\Login\style.css" />
+    <Content Include="Content\Themify-icons\demo-files\demo.css" />
+    <Content Include="Content\Themify-icons\fonts\themify.svg" />
+    <Content Include="Content\Themify-icons\ie7\ie7.css" />
+    <Content Include="Content\Themify-icons\ie7\ie7.js" />
+    <Content Include="Content\Themify-icons\index.html" />
+    <Content Include="Content\Themify-icons\readme.txt" />
+    <Content Include="Content\Themify-icons\SVG\agenda.svg" />
+    <Content Include="Content\Themify-icons\SVG\alarm-clock.svg" />
+    <Content Include="Content\Themify-icons\SVG\alert.svg" />
+    <Content Include="Content\Themify-icons\SVG\align-center.svg" />
+    <Content Include="Content\Themify-icons\SVG\align-justify.svg" />
+    <Content Include="Content\Themify-icons\SVG\align-left.svg" />
+    <Content Include="Content\Themify-icons\SVG\align-right.svg" />
+    <Content Include="Content\Themify-icons\SVG\anchor.svg" />
+    <Content Include="Content\Themify-icons\SVG\android.svg" />
+    <Content Include="Content\Themify-icons\SVG\angle-double-down.svg" />
+    <Content Include="Content\Themify-icons\SVG\angle-double-left.svg" />
+    <Content Include="Content\Themify-icons\SVG\angle-double-right.svg" />
+    <Content Include="Content\Themify-icons\SVG\angle-double-up.svg" />
+    <Content Include="Content\Themify-icons\SVG\angle-down.svg" />
+    <Content Include="Content\Themify-icons\SVG\angle-left.svg" />
+    <Content Include="Content\Themify-icons\SVG\angle-right.svg" />
+    <Content Include="Content\Themify-icons\SVG\angle-up.svg" />
+    <Content Include="Content\Themify-icons\SVG\announcement.svg" />
+    <Content Include="Content\Themify-icons\SVG\apple.svg" />
+    <Content Include="Content\Themify-icons\SVG\archive.svg" />
+    <Content Include="Content\Themify-icons\SVG\arrow-circle-down.svg" />
+    <Content Include="Content\Themify-icons\SVG\arrow-circle-left.svg" />
+    <Content Include="Content\Themify-icons\SVG\arrow-circle-right.svg" />
+    <Content Include="Content\Themify-icons\SVG\arrow-circle-up.svg" />
+    <Content Include="Content\Themify-icons\SVG\arrow-down.svg" />
+    <Content Include="Content\Themify-icons\SVG\arrow-left.svg" />
+    <Content Include="Content\Themify-icons\SVG\arrow-right.svg" />
+    <Content Include="Content\Themify-icons\SVG\arrow-top-left.svg" />
+    <Content Include="Content\Themify-icons\SVG\arrow-top-right.svg" />
+    <Content Include="Content\Themify-icons\SVG\arrow-up.svg" />
+    <Content Include="Content\Themify-icons\SVG\arrow.svg" />
+    <Content Include="Content\Themify-icons\SVG\arrows-corner.svg" />
+    <Content Include="Content\Themify-icons\SVG\arrows-horizontal.svg" />
+    <Content Include="Content\Themify-icons\SVG\arrows-vertical.svg" />
+    <Content Include="Content\Themify-icons\SVG\back-left.svg" />
+    <Content Include="Content\Themify-icons\SVG\back-right.svg" />
+    <Content Include="Content\Themify-icons\SVG\bag.svg" />
+    <Content Include="Content\Themify-icons\SVG\bar-chart-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\bar-chart.svg" />
+    <Content Include="Content\Themify-icons\SVG\basketball.svg" />
+    <Content Include="Content\Themify-icons\SVG\bell.svg" />
+    <Content Include="Content\Themify-icons\SVG\blackboard.svg" />
+    <Content Include="Content\Themify-icons\SVG\bolt-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\bolt.svg" />
+    <Content Include="Content\Themify-icons\SVG\book.svg" />
+    <Content Include="Content\Themify-icons\SVG\bookmark-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\bookmark.svg" />
+    <Content Include="Content\Themify-icons\SVG\briefcase.svg" />
+    <Content Include="Content\Themify-icons\SVG\brush-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\brush.svg" />
+    <Content Include="Content\Themify-icons\SVG\calendar.svg" />
+    <Content Include="Content\Themify-icons\SVG\camera.svg" />
+    <Content Include="Content\Themify-icons\SVG\car.svg" />
+    <Content Include="Content\Themify-icons\SVG\check-box.svg" />
+    <Content Include="Content\Themify-icons\SVG\check.svg" />
+    <Content Include="Content\Themify-icons\SVG\clip.svg" />
+    <Content Include="Content\Themify-icons\SVG\clipboard.svg" />
+    <Content Include="Content\Themify-icons\SVG\close.svg" />
+    <Content Include="Content\Themify-icons\SVG\cloud-down.svg" />
+    <Content Include="Content\Themify-icons\SVG\cloud-up.svg" />
+    <Content Include="Content\Themify-icons\SVG\cloud.svg" />
+    <Content Include="Content\Themify-icons\SVG\comment-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\comment.svg" />
+    <Content Include="Content\Themify-icons\SVG\comments-smiley.svg" />
+    <Content Include="Content\Themify-icons\SVG\comments.svg" />
+    <Content Include="Content\Themify-icons\SVG\control-backward.svg" />
+    <Content Include="Content\Themify-icons\SVG\control-eject.svg" />
+    <Content Include="Content\Themify-icons\SVG\control-forward.svg" />
+    <Content Include="Content\Themify-icons\SVG\control-pause.svg" />
+    <Content Include="Content\Themify-icons\SVG\control-play.svg" />
+    <Content Include="Content\Themify-icons\SVG\control-record.svg" />
+    <Content Include="Content\Themify-icons\SVG\control-shuffle.svg" />
+    <Content Include="Content\Themify-icons\SVG\control-skip-backward.svg" />
+    <Content Include="Content\Themify-icons\SVG\control-skip-forward.svg" />
+    <Content Include="Content\Themify-icons\SVG\control-stop.svg" />
+    <Content Include="Content\Themify-icons\SVG\credit-card.svg" />
+    <Content Include="Content\Themify-icons\SVG\crown.svg" />
+    <Content Include="Content\Themify-icons\SVG\css3.svg" />
+    <Content Include="Content\Themify-icons\SVG\cup.svg" />
+    <Content Include="Content\Themify-icons\SVG\cut.svg" />
+    <Content Include="Content\Themify-icons\SVG\dashboard.svg" />
+    <Content Include="Content\Themify-icons\SVG\desktop.svg" />
+    <Content Include="Content\Themify-icons\SVG\direction-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\direction.svg" />
+    <Content Include="Content\Themify-icons\SVG\download.svg" />
+    <Content Include="Content\Themify-icons\SVG\dribbble.svg" />
+    <Content Include="Content\Themify-icons\SVG\dropbox-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\dropbox.svg" />
+    <Content Include="Content\Themify-icons\SVG\drupal.svg" />
+    <Content Include="Content\Themify-icons\SVG\email.svg" />
+    <Content Include="Content\Themify-icons\SVG\envelope.svg" />
+    <Content Include="Content\Themify-icons\SVG\eraser.svg" />
+    <Content Include="Content\Themify-icons\SVG\exchange-vertical.svg" />
+    <Content Include="Content\Themify-icons\SVG\export.svg" />
+    <Content Include="Content\Themify-icons\SVG\eye.svg" />
+    <Content Include="Content\Themify-icons\SVG\face-sad.svg" />
+    <Content Include="Content\Themify-icons\SVG\face-smile.svg" />
+    <Content Include="Content\Themify-icons\SVG\facebook.svg" />
+    <Content Include="Content\Themify-icons\SVG\file.svg" />
+    <Content Include="Content\Themify-icons\SVG\files.svg" />
+    <Content Include="Content\Themify-icons\SVG\filter.svg" />
+    <Content Include="Content\Themify-icons\SVG\flag-alt-2.svg" />
+    <Content Include="Content\Themify-icons\SVG\flag-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\flag.svg" />
+    <Content Include="Content\Themify-icons\SVG\flickr-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\flickr.svg" />
+    <Content Include="Content\Themify-icons\SVG\folder.svg" />
+    <Content Include="Content\Themify-icons\SVG\fullscreen.svg" />
+    <Content Include="Content\Themify-icons\SVG\gallery.svg" />
+    <Content Include="Content\Themify-icons\SVG\game.svg" />
+    <Content Include="Content\Themify-icons\SVG\gift.svg" />
+    <Content Include="Content\Themify-icons\SVG\github.svg" />
+    <Content Include="Content\Themify-icons\SVG\google.svg" />
+    <Content Include="Content\Themify-icons\SVG\hand-drag.svg" />
+    <Content Include="Content\Themify-icons\SVG\hand-open.svg" />
+    <Content Include="Content\Themify-icons\SVG\hand-point-down.svg" />
+    <Content Include="Content\Themify-icons\SVG\hand-point-left.svg" />
+    <Content Include="Content\Themify-icons\SVG\hand-point-right.svg" />
+    <Content Include="Content\Themify-icons\SVG\hand-point-up.svg" />
+    <Content Include="Content\Themify-icons\SVG\hand-stop.svg" />
+    <Content Include="Content\Themify-icons\SVG\harddrive.svg" />
+    <Content Include="Content\Themify-icons\SVG\harddrives.svg" />
+    <Content Include="Content\Themify-icons\SVG\headphone-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\headphone.svg" />
+    <Content Include="Content\Themify-icons\SVG\heart-broken.svg" />
+    <Content Include="Content\Themify-icons\SVG\heart.svg" />
+    <Content Include="Content\Themify-icons\SVG\help-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\help.svg" />
+    <Content Include="Content\Themify-icons\SVG\home.svg" />
+    <Content Include="Content\Themify-icons\SVG\html5.svg" />
+    <Content Include="Content\Themify-icons\SVG\hummer.svg" />
+    <Content Include="Content\Themify-icons\SVG\id-badge.svg" />
+    <Content Include="Content\Themify-icons\SVG\image.svg" />
+    <Content Include="Content\Themify-icons\SVG\import.svg" />
+    <Content Include="Content\Themify-icons\SVG\infinite.svg" />
+    <Content Include="Content\Themify-icons\SVG\info-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\info.svg" />
+    <Content Include="Content\Themify-icons\SVG\ink-pen.svg" />
+    <Content Include="Content\Themify-icons\SVG\instagram.svg" />
+    <Content Include="Content\Themify-icons\SVG\Italic.svg" />
+    <Content Include="Content\Themify-icons\SVG\joomla.svg" />
+    <Content Include="Content\Themify-icons\SVG\jsfiddle.svg" />
+    <Content Include="Content\Themify-icons\SVG\key.svg" />
+    <Content Include="Content\Themify-icons\SVG\layers-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\layers.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-accordion-list.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-accordion-merged.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-accordion-separated.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-column2-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-column2.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-column3-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-column3.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-column4-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-column4.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-cta-btn-left.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-cta-btn-right.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-cta-center.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-cta-left.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-cta-right.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-grid2-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-grid2-thumb.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-grid2.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-grid3-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-grid3.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-grid4-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-grid4.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-line-solid.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-list-large-image.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-list-post.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-list-thumb-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-list-thumb.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-media-center-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-media-center.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-media-left-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-media-left.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-media-overlay-alt-2.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-media-overlay-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-media-overlay.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-media-right-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-media-right.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-menu-full.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-menu-separated.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-menu-v.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-menu.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-placeholder.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-sidebar-2.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-sidebar-left.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-sidebar-none.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-sidebar-right.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-slider-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-slider.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-tab-min.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-tab-v.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-tab-window.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-tab.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-width-default-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-width-default.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout-width-full.svg" />
+    <Content Include="Content\Themify-icons\SVG\layout.svg" />
+    <Content Include="Content\Themify-icons\SVG\light-bulb.svg" />
+    <Content Include="Content\Themify-icons\SVG\line-dashed.svg" />
+    <Content Include="Content\Themify-icons\SVG\line-dotted.svg" />
+    <Content Include="Content\Themify-icons\SVG\line-double.svg" />
+    <Content Include="Content\Themify-icons\SVG\link.svg" />
+    <Content Include="Content\Themify-icons\SVG\linkedin.svg" />
+    <Content Include="Content\Themify-icons\SVG\linux.svg" />
+    <Content Include="Content\Themify-icons\SVG\list-ol.svg" />
+    <Content Include="Content\Themify-icons\SVG\list.svg" />
+    <Content Include="Content\Themify-icons\SVG\location-arrow.svg" />
+    <Content Include="Content\Themify-icons\SVG\location-pin.svg" />
+    <Content Include="Content\Themify-icons\SVG\lock.svg" />
+    <Content Include="Content\Themify-icons\SVG\loop.svg" />
+    <Content Include="Content\Themify-icons\SVG\magnet.svg" />
+    <Content Include="Content\Themify-icons\SVG\map-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\map.svg" />
+    <Content Include="Content\Themify-icons\SVG\marker-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\marker.svg" />
+    <Content Include="Content\Themify-icons\SVG\medall-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\medall.svg" />
+    <Content Include="Content\Themify-icons\SVG\menu-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\menu.svg" />
+    <Content Include="Content\Themify-icons\SVG\microphone-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\microphone.svg" />
+    <Content Include="Content\Themify-icons\SVG\microsoft-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\microsoft.svg" />
+    <Content Include="Content\Themify-icons\SVG\minus.svg" />
+    <Content Include="Content\Themify-icons\SVG\mobile.svg" />
+    <Content Include="Content\Themify-icons\SVG\money.svg" />
+    <Content Include="Content\Themify-icons\SVG\more-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\more.svg" />
+    <Content Include="Content\Themify-icons\SVG\mouse-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\mouse.svg" />
+    <Content Include="Content\Themify-icons\SVG\music-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\music.svg" />
+    <Content Include="Content\Themify-icons\SVG\na.svg" />
+    <Content Include="Content\Themify-icons\SVG\new-window.svg" />
+    <Content Include="Content\Themify-icons\SVG\notepad.svg" />
+    <Content Include="Content\Themify-icons\SVG\package.svg" />
+    <Content Include="Content\Themify-icons\SVG\paint-bucket.svg" />
+    <Content Include="Content\Themify-icons\SVG\paint-roller.svg" />
+    <Content Include="Content\Themify-icons\SVG\palette.svg" />
+    <Content Include="Content\Themify-icons\SVG\panel.svg" />
+    <Content Include="Content\Themify-icons\SVG\paragraph.svg" />
+    <Content Include="Content\Themify-icons\SVG\pencil-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\pencil-alt2.svg" />
+    <Content Include="Content\Themify-icons\SVG\pencil.svg" />
+    <Content Include="Content\Themify-icons\SVG\pie-chart.svg" />
+    <Content Include="Content\Themify-icons\SVG\pin-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\pin.svg" />
+    <Content Include="Content\Themify-icons\SVG\pin2.svg" />
+    <Content Include="Content\Themify-icons\SVG\pinterest-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\pinterest.svg" />
+    <Content Include="Content\Themify-icons\SVG\plug.svg" />
+    <Content Include="Content\Themify-icons\SVG\plus.svg" />
+    <Content Include="Content\Themify-icons\SVG\power-off.svg" />
+    <Content Include="Content\Themify-icons\SVG\printer.svg" />
+    <Content Include="Content\Themify-icons\SVG\pulse.svg" />
+    <Content Include="Content\Themify-icons\SVG\quote-left.svg" />
+    <Content Include="Content\Themify-icons\SVG\quote-right.svg" />
+    <Content Include="Content\Themify-icons\SVG\receipt.svg" />
+    <Content Include="Content\Themify-icons\SVG\reddit.svg" />
+    <Content Include="Content\Themify-icons\SVG\reload.svg" />
+    <Content Include="Content\Themify-icons\SVG\rocket.svg" />
+    <Content Include="Content\Themify-icons\SVG\rss-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\rss.svg" />
+    <Content Include="Content\Themify-icons\SVG\ruler-alt-2.svg" />
+    <Content Include="Content\Themify-icons\SVG\ruler-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\ruler-pencil.svg" />
+    <Content Include="Content\Themify-icons\SVG\ruler.svg" />
+    <Content Include="Content\Themify-icons\SVG\save-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\save.svg" />
+    <Content Include="Content\Themify-icons\SVG\search.svg" />
+    <Content Include="Content\Themify-icons\SVG\server.svg" />
+    <Content Include="Content\Themify-icons\SVG\settings.svg" />
+    <Content Include="Content\Themify-icons\SVG\share-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\share.svg" />
+    <Content Include="Content\Themify-icons\SVG\sharethis-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\sharethis.svg" />
+    <Content Include="Content\Themify-icons\SVG\shield.svg" />
+    <Content Include="Content\Themify-icons\SVG\shift-left-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\shift-left.svg" />
+    <Content Include="Content\Themify-icons\SVG\shift-right-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\shift-right.svg" />
+    <Content Include="Content\Themify-icons\SVG\shine.svg" />
+    <Content Include="Content\Themify-icons\SVG\shopping-cart-full.svg" />
+    <Content Include="Content\Themify-icons\SVG\shopping-cart.svg" />
+    <Content Include="Content\Themify-icons\SVG\shortcode.svg" />
+    <Content Include="Content\Themify-icons\SVG\signal.svg" />
+    <Content Include="Content\Themify-icons\SVG\skype.svg" />
+    <Content Include="Content\Themify-icons\SVG\slice.svg" />
+    <Content Include="Content\Themify-icons\SVG\smallcap.svg" />
+    <Content Include="Content\Themify-icons\SVG\soundcloud.svg" />
+    <Content Include="Content\Themify-icons\SVG\split-h.svg" />
+    <Content Include="Content\Themify-icons\SVG\split-v-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\split-v.svg" />
+    <Content Include="Content\Themify-icons\SVG\spray.svg" />
+    <Content Include="Content\Themify-icons\SVG\stack-overflow.svg" />
+    <Content Include="Content\Themify-icons\SVG\stamp.svg" />
+    <Content Include="Content\Themify-icons\SVG\star.svg" />
+    <Content Include="Content\Themify-icons\SVG\stats-down.svg" />
+    <Content Include="Content\Themify-icons\SVG\stats-up.svg" />
+    <Content Include="Content\Themify-icons\SVG\support.svg" />
+    <Content Include="Content\Themify-icons\SVG\tablet.svg" />
+    <Content Include="Content\Themify-icons\SVG\tag.svg" />
+    <Content Include="Content\Themify-icons\SVG\target.svg" />
+    <Content Include="Content\Themify-icons\SVG\text.svg" />
+    <Content Include="Content\Themify-icons\SVG\themify-favicon-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\themify-favicon.svg" />
+    <Content Include="Content\Themify-icons\SVG\themify-logo.svg" />
+    <Content Include="Content\Themify-icons\SVG\thought.svg" />
+    <Content Include="Content\Themify-icons\SVG\thumb-down.svg" />
+    <Content Include="Content\Themify-icons\SVG\thumb-up.svg" />
+    <Content Include="Content\Themify-icons\SVG\ticket.svg" />
+    <Content Include="Content\Themify-icons\SVG\time.svg" />
+    <Content Include="Content\Themify-icons\SVG\timer.svg" />
+    <Content Include="Content\Themify-icons\SVG\trash.svg" />
+    <Content Include="Content\Themify-icons\SVG\trello.svg" />
+    <Content Include="Content\Themify-icons\SVG\truck.svg" />
+    <Content Include="Content\Themify-icons\SVG\tumblr-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\tumblr.svg" />
+    <Content Include="Content\Themify-icons\SVG\twitter-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\twitter.svg" />
+    <Content Include="Content\Themify-icons\SVG\underline.svg" />
+    <Content Include="Content\Themify-icons\SVG\unlink.svg" />
+    <Content Include="Content\Themify-icons\SVG\unlock.svg" />
+    <Content Include="Content\Themify-icons\SVG\upload.svg" />
+    <Content Include="Content\Themify-icons\SVG\uppercase.svg" />
+    <Content Include="Content\Themify-icons\SVG\user.svg" />
+    <Content Include="Content\Themify-icons\SVG\vector.svg" />
+    <Content Include="Content\Themify-icons\SVG\video-camera.svg" />
+    <Content Include="Content\Themify-icons\SVG\video-clapper.svg" />
+    <Content Include="Content\Themify-icons\SVG\view-grid.svg" />
+    <Content Include="Content\Themify-icons\SVG\view-list-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\view-list.svg" />
+    <Content Include="Content\Themify-icons\SVG\vimeo-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\vimeo.svg" />
+    <Content Include="Content\Themify-icons\SVG\volume.svg" />
+    <Content Include="Content\Themify-icons\SVG\wallet.svg" />
+    <Content Include="Content\Themify-icons\SVG\wand.svg" />
+    <Content Include="Content\Themify-icons\SVG\wheelchair.svg" />
+    <Content Include="Content\Themify-icons\SVG\widget-alt.svg" />
+    <Content Include="Content\Themify-icons\SVG\widget.svg" />
+    <Content Include="Content\Themify-icons\SVG\widgetized.svg" />
+    <Content Include="Content\Themify-icons\SVG\window.svg" />
+    <Content Include="Content\Themify-icons\SVG\wordpress.svg" />
+    <Content Include="Content\Themify-icons\SVG\world.svg" />
+    <Content Include="Content\Themify-icons\SVG\write.svg" />
+    <Content Include="Content\Themify-icons\SVG\yahoo.svg" />
+    <Content Include="Content\Themify-icons\SVG\youtube.svg" />
+    <Content Include="Content\Themify-icons\SVG\zip.svg" />
+    <Content Include="Content\Themify-icons\SVG\zoom-in.svg" />
+    <Content Include="Content\Themify-icons\SVG\zoom-out.svg" />
+    <Content Include="Content\Themify-icons\themify-icons.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\fonts\ElegantIcons.eot" />
+    <Content Include="Content\fonts\ElegantIcons.ttf" />
+    <Content Include="Content\fonts\ElegantIcons.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\sass\style.scss" />
+    <Content Include="Content\sass\_base.scss" />
+    <Content Include="Content\sass\_blog-details.scss" />
+    <Content Include="Content\sass\_blog-sidebar.scss" />
+    <Content Include="Content\sass\_blog.scss" />
+    <Content Include="Content\sass\_breadcrumb.scss" />
+    <Content Include="Content\sass\_checkout.scss" />
+    <Content Include="Content\sass\_contact.scss" />
+    <Content Include="Content\sass\_footer.scss" />
+    <Content Include="Content\sass\_header.scss" />
+    <Content Include="Content\sass\_hero.scss" />
+    <Content Include="Content\sass\_home-page.scss" />
+    <Content Include="Content\sass\_mixins.scss" />
+    <Content Include="Content\sass\_responsive.scss" />
+    <Content Include="Content\sass\_shop-details.scss" />
+    <Content Include="Content\sass\_shop-grid.scss" />
+    <Content Include="Content\sass\_shoping-cart.scss" />
+    <Content Include="Content\sass\_sidebar.scss" />
+    <Content Include="Content\sass\_variable.scss" />
+    <Content Include="Content\Source\bootstrap-4.4.1-dist.zip" />
+    <Content Include="Content\Source\font-awesome-4.7.0.zip" />
+    <Content Include="Content\Source\jquery-nice-select-1.1.0.zip" />
+    <Content Include="Content\Source\jquery-ui-1.12.1.zip" />
+    <Content Include="Content\Source\OwlCarousel2-2.3.4.zip" />
+    <Content Include="Content\Source\sass.zip" />
+    <Content Include="Content\Source\SlickNav-master.zip" />
+    <Content Include="Content\fonts\.DS_Store" />
+    <Content Include="Content\fonts\flaticon\.DS_Store" />
+    <Content Include="Content\fonts\flaticon\font\.DS_Store" />
+    <Content Include="Content\fonts\flaticon\font\Flaticon.eot" />
+    <Content Include="Content\fonts\flaticon\font\Flaticon.ttf" />
+    <Content Include="Content\fonts\flaticon\font\Flaticon.woff" />
+    <Content Include="Content\fonts\flaticon\font\Flaticon.woff2" />
+    <Content Include="Content\fonts\flaticon\font\_flaticon.scss" />
+    <Content Include="Content\fonts\flaticon\license\license.pdf" />
+    <Content Include="Content\fonts\icomoon\icomoon.eot" />
+    <Content Include="Content\fonts\icomoon\icomoon.ttf" />
+    <Content Include="Content\fonts\icomoon\icomoon.woff" />
+    <Content Include="Content\fonts\ionicons\css\_ionicons.scss" />
+    <Content Include="Content\fonts\ionicons\fonts\.DS_Store" />
+    <Content Include="Content\fonts\ionicons\fonts\ionicons.eot" />
+    <Content Include="Content\fonts\ionicons\fonts\ionicons.ttf" />
+    <Content Include="Content\fonts\ionicons\fonts\ionicons.woff" />
+    <Content Include="Content\fonts\ionicons\fonts\ionicons.woff2" />
+    <Content Include="Content\fonts\open-iconic\open-iconic.eot" />
+    <Content Include="Content\fonts\open-iconic\open-iconic.otf" />
+    <Content Include="Content\fonts\open-iconic\open-iconic.ttf" />
+    <Content Include="Content\fonts\open-iconic\open-iconic.woff" />
+    <Content Include="Content\images\.DS_Store" />
+    <Content Include="Content\js\.DS_Store" />
+    <Content Include="Content\scss\.DS_Store" />
+    <Content Include="Content\scss\bootstrap\.DS_Store" />
+    <Content Include="Content\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="Content\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="Content\scss\bootstrap\bootstrap.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="Content\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_overflow.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="Content\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="Content\scss\bootstrap\_alert.scss" />
+    <Content Include="Content\scss\bootstrap\_badge.scss" />
+    <Content Include="Content\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="Content\scss\bootstrap\_button-group.scss" />
+    <Content Include="Content\scss\bootstrap\_buttons.scss" />
+    <Content Include="Content\scss\bootstrap\_card.scss" />
+    <Content Include="Content\scss\bootstrap\_carousel.scss" />
+    <Content Include="Content\scss\bootstrap\_close.scss" />
+    <Content Include="Content\scss\bootstrap\_code.scss" />
+    <Content Include="Content\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="Content\scss\bootstrap\_dropdown.scss" />
+    <Content Include="Content\scss\bootstrap\_forms.scss" />
+    <Content Include="Content\scss\bootstrap\_functions.scss" />
+    <Content Include="Content\scss\bootstrap\_grid.scss" />
+    <Content Include="Content\scss\bootstrap\_images.scss" />
+    <Content Include="Content\scss\bootstrap\_input-group.scss" />
+    <Content Include="Content\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="Content\scss\bootstrap\_list-group.scss" />
+    <Content Include="Content\scss\bootstrap\_media.scss" />
+    <Content Include="Content\scss\bootstrap\_mixins.scss" />
+    <Content Include="Content\scss\bootstrap\_modal.scss" />
+    <Content Include="Content\scss\bootstrap\_nav.scss" />
+    <Content Include="Content\scss\bootstrap\_navbar.scss" />
+    <Content Include="Content\scss\bootstrap\_pagination.scss" />
+    <Content Include="Content\scss\bootstrap\_popover.scss" />
+    <Content Include="Content\scss\bootstrap\_print.scss" />
+    <Content Include="Content\scss\bootstrap\_progress.scss" />
+    <Content Include="Content\scss\bootstrap\_reboot.scss" />
+    <Content Include="Content\scss\bootstrap\_root.scss" />
+    <Content Include="Content\scss\bootstrap\_spinners.scss" />
+    <Content Include="Content\scss\bootstrap\_tables.scss" />
+    <Content Include="Content\scss\bootstrap\_toasts.scss" />
+    <Content Include="Content\scss\bootstrap\_tooltip.scss" />
+    <Content Include="Content\scss\bootstrap\_transitions.scss" />
+    <Content Include="Content\scss\bootstrap\_type.scss" />
+    <Content Include="Content\scss\bootstrap\_utilities.scss" />
+    <Content Include="Content\scss\bootstrap\_variables.scss" />
+    <Content Include="Content\scss\style.scss" />
+    <Content Include="Content\Themify-icons\fonts\themify.eot" />
+    <Content Include="Content\Themify-icons\fonts\themify.ttf" />
+    <Content Include="Content\Themify-icons\fonts\themify.woff" />
+    <Content Include="Content\Themify-icons\Themify IconFonts 5-23-2014.json" />
+    <Content Include="Content\css\.DS_Store" />
+    <Content Include="Content\css\bootstrap\.DS_Store" />
+    <Content Include="Content\css\css\.DS_Store" />
+    <Content Include="Content\css\css\mixins\.DS_Store" />
+    <EntityDeploy Include="banhangthucpham18.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>banhangthucpham18.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="banhangthucpham18.edmx.diagram">
+      <DependentUpon>banhangthucpham18.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Blog_single\Index.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\wishlist\Index.cshtml" />
+    <Content Include="Views\cart\Index.cshtml" />
+    <Content Include="Views\Checkout\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Home\TopMenu.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\Home\Partial_Subscribe.cshtml" />
+    <Content Include="Views\product_single\productsingle.cshtml" />
+    <Content Include="Views\product_single\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>58841</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44317/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
