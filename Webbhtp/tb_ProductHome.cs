@@ -25,7 +25,5 @@ namespace Webbhtp
         public bool IsNew { get; set; }
         public bool IsBestSeller { get; set; }
         public bool IsActive { get; set; }
-    
-        public virtual tb_ProductSingle tb_ProductSingle { get; set; }
     }
 }

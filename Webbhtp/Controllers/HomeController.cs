@@ -16,22 +16,7 @@ namespace Webbhtp.Controllers
             return View();
         }
 
-        public ActionResult Partial_Subscribe()
-        {
-            return PartialView();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Subscribe(Subscribe req)
-        {
-            if (ModelState.IsValid)
-            {
-                db.tb_Subscribe.Add(new tb_Subscribe { Email = req.Email, CreateDate = DateTime.Now });
-                db.SaveChanges();
-                return Json(true);
-            }
-            return View("Partial_Subscribe");
-        }
+       
 
         public ActionResult About()
         {

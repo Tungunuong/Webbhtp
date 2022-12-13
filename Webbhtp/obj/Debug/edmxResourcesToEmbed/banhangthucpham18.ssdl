@@ -63,6 +63,22 @@
     <Property Name="IsBestSeller" Type="bit" Nullable="false" />
     <Property Name="IsActive" Type="bit" Nullable="false" />
   </EntityType>
+  <EntityType Name="tb_CategoryProduct">
+    <Key>
+      <PropertyRef Name="CategoryProductId" />
+    </Key>
+    <Property Name="CategoryProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="150" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="150" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="500" />
+    <Property Name="Position" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="ModifiedDate" Type="datetime" />
+    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
   <EntityType Name="tb_Comment_Home">
     <Key>
       <PropertyRef Name="CommentId" />
@@ -81,14 +97,11 @@
     </Key>
     <Property Name="ContactId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="150" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="15" />
     <Property Name="Email" Type="nvarchar" MaxLength="150" />
     <Property Name="Message" Type="nvarchar(max)" />
-    <Property Name="IsRead" Type="int" />
+    <Property Name="IsRead" Type="bit" Nullable="false" />
     <Property Name="CreatedDate" Type="datetime" />
-    <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
-    <Property Name="ModifiedDate" Type="datetime" />
-    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="150" />
-    <Property Name="Phone" Type="int" />
   </EntityType>
   <EntityType Name="tb_Menu">
     <Key>
@@ -151,7 +164,7 @@
     <Property Name="ProductdID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Title" Type="nvarchar" MaxLength="250" />
     <Property Name="Alias" Type="nvarchar" MaxLength="250" />
-    <Property Name="ProductSingleId" Type="int" />
+    <Property Name="ProducSingletId" Type="int" />
     <Property Name="Image" Type="nvarchar" MaxLength="500" />
     <Property Name="Price" Type="ntext" />
     <Property Name="PriceSale" Type="ntext" />
@@ -159,6 +172,7 @@
     <Property Name="IsNew" Type="bit" Nullable="false" />
     <Property Name="IsBestSeller" Type="bit" Nullable="false" />
     <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="CategoryProductId" Type="int" />
   </EntityType>
   <EntityType Name="tb_ProductHome">
     <Key>
@@ -176,18 +190,6 @@
     <Property Name="IsBestSeller" Type="bit" Nullable="false" />
     <Property Name="IsActive" Type="bit" Nullable="false" />
   </EntityType>
-  <EntityType Name="tb_ProductSingle">
-    <Key>
-      <PropertyRef Name="ProductSingleId" />
-    </Key>
-    <Property Name="ProductSingleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Image" Type="nvarchar" MaxLength="500" />
-    <Property Name="Price" Type="ntext" />
-    <Property Name="Description" Type="nvarchar" MaxLength="500" />
-    <Property Name="Detail" Type="nvarchar(max)" />
-    <Property Name="Quantity" Type="int" />
-    <Property Name="IsActive" Type="bit" Nullable="false" />
-  </EntityType>
   <EntityType Name="tb_Setting">
     <Key>
       <PropertyRef Name="SettingId" />
@@ -196,21 +198,6 @@
     <Property Name="SettingKey" Type="nvarchar" MaxLength="100" />
     <Property Name="SettingValue" Type="nvarchar(max)" />
     <Property Name="SettingDescription" Type="nvarchar" MaxLength="500" />
-  </EntityType>
-  <EntityType Name="tb_ShopMenu">
-    <Key>
-      <PropertyRef Name="ShopId" />
-    </Key>
-    <Property Name="ShopId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Title" Type="nvarchar" MaxLength="150" />
-    <Property Name="Alias" Type="nvarchar" MaxLength="150" />
-    <Property Name="Description" Type="nvarchar" MaxLength="500" />
-    <Property Name="Position" Type="int" />
-    <Property Name="CreatedDate" Type="datetime" />
-    <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
-    <Property Name="ModifiedDate" Type="datetime" />
-    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="150" />
-    <Property Name="IsActive" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="tb_ShopNow_Home">
     <Key>
@@ -260,6 +247,18 @@
     <Property Name="IsBestSeller" Type="bit" Nullable="false" />
     <Property Name="IsActive" Type="bit" Nullable="false" />
   </EntityType>
+  <Association Name="fk_CategoryProductId">
+    <End Role="tb_CategoryProduct" Type="Self.tb_CategoryProduct" Multiplicity="0..1" />
+    <End Role="tb_Product" Type="Self.tb_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_CategoryProduct">
+        <PropertyRef Name="CategoryProductId" />
+      </Principal>
+      <Dependent Role="tb_Product">
+        <PropertyRef Name="CategoryProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_tb_OrderDetail_tb_Order">
     <End Role="tb_Order" Type="Self.tb_Order" Multiplicity="0..1" />
     <End Role="tb_OrderDetail" Type="Self.tb_OrderDetail" Multiplicity="*" />
@@ -272,36 +271,44 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_tb_Product_tb_ProductSingle">
-    <End Role="tb_ProductSingle" Type="Self.tb_ProductSingle" Multiplicity="0..1" />
-    <End Role="tb_Product" Type="Self.tb_Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tb_ProductSingle">
-        <PropertyRef Name="ProductSingleId" />
-      </Principal>
-      <Dependent Role="tb_Product">
-        <PropertyRef Name="ProductSingleId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_tb_ProductHome_tb_ProductSingle">
-    <End Role="tb_ProductSingle" Type="Self.tb_ProductSingle" Multiplicity="0..1" />
-    <End Role="tb_ProductHome" Type="Self.tb_ProductHome" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tb_ProductSingle">
-        <PropertyRef Name="ProductSingleId" />
-      </Principal>
-      <Dependent Role="tb_ProductHome">
-        <PropertyRef Name="ProductSingleId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="BanHangThucPhamModelStoreContainer">
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_About" EntityType="Self.tb_About" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_Adv" EntityType="Self.tb_Adv" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_Blog" EntityType="Self.tb_Blog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_Cart" EntityType="Self.tb_Cart" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_CategoryProduct" EntityType="Self.tb_CategoryProduct" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_Comment_Home" EntityType="Self.tb_Comment_Home" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_Contact" EntityType="Self.tb_Contact" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_Menu" EntityType="Self.tb_Menu" Schema="dbo" store:Type="Tables" />
@@ -310,24 +317,18 @@
     <EntitySet Name="tb_OrderDetail" EntityType="Self.tb_OrderDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_Product" EntityType="Self.tb_Product" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_ProductHome" EntityType="Self.tb_ProductHome" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="tb_ProductSingle" EntityType="Self.tb_ProductSingle" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_Setting" EntityType="Self.tb_Setting" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="tb_ShopMenu" EntityType="Self.tb_ShopMenu" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_ShopNow_Home" EntityType="Self.tb_ShopNow_Home" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_Slide" EntityType="Self.tb_Slide" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_Subscribe" EntityType="Self.tb_Subscribe" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_Wishlist" EntityType="Self.tb_Wishlist" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_CategoryProductId" Association="Self.fk_CategoryProductId">
+      <End Role="tb_CategoryProduct" EntitySet="tb_CategoryProduct" />
+      <End Role="tb_Product" EntitySet="tb_Product" />
+    </AssociationSet>
     <AssociationSet Name="FK_tb_OrderDetail_tb_Order" Association="Self.FK_tb_OrderDetail_tb_Order">
       <End Role="tb_Order" EntitySet="tb_Order" />
       <End Role="tb_OrderDetail" EntitySet="tb_OrderDetail" />
-    </AssociationSet>
-    <AssociationSet Name="FK_tb_Product_tb_ProductSingle" Association="Self.FK_tb_Product_tb_ProductSingle">
-      <End Role="tb_ProductSingle" EntitySet="tb_ProductSingle" />
-      <End Role="tb_Product" EntitySet="tb_Product" />
-    </AssociationSet>
-    <AssociationSet Name="FK_tb_ProductHome_tb_ProductSingle" Association="Self.FK_tb_ProductHome_tb_ProductSingle">
-      <End Role="tb_ProductSingle" EntitySet="tb_ProductSingle" />
-      <End Role="tb_ProductHome" EntitySet="tb_ProductHome" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -82,22 +82,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tb_Contact">
-      <EntityTypeMapping TypeName="BanHangThucPhamModel.tb_Contact">
-        <MappingFragment StoreEntitySet="tb_Contact">
-          <ScalarProperty Name="Phone" ColumnName="Phone" />
-          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="Message" ColumnName="Message" />
-          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tb_Menu">
       <EntityTypeMapping TypeName="BanHangThucPhamModel.tb_Menu">
         <MappingFragment StoreEntitySet="tb_Menu">
@@ -145,10 +129,10 @@
     <EntitySetMapping Name="tb_Product">
       <EntityTypeMapping TypeName="BanHangThucPhamModel.tb_Product">
         <MappingFragment StoreEntitySet="tb_Product">
+          <ScalarProperty Name="CategoryProductId" ColumnName="CategoryProductId" />
           <ScalarProperty Name="ProductdID" ColumnName="ProductdID" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Alias" ColumnName="Alias" />
-          <ScalarProperty Name="ProductSingleId" ColumnName="ProductSingleId" />
           <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="Price" ColumnName="Price" />
           <ScalarProperty Name="PriceSale" ColumnName="PriceSale" />
@@ -172,19 +156,6 @@
           <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="IsNew" ColumnName="IsNew" />
           <ScalarProperty Name="IsBestSeller" ColumnName="IsBestSeller" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tb_ProductSingle">
-      <EntityTypeMapping TypeName="BanHangThucPhamModel.tb_ProductSingle">
-        <MappingFragment StoreEntitySet="tb_ProductSingle">
-          <ScalarProperty Name="ProductSingleId" ColumnName="ProductSingleId" />
-          <ScalarProperty Name="Image" ColumnName="Image" />
-          <ScalarProperty Name="Price" ColumnName="Price" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Detail" ColumnName="Detail" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -251,22 +222,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tb_ShopMenu">
-      <EntityTypeMapping TypeName="BanHangThucPhamModel.tb_ShopMenu">
-        <MappingFragment StoreEntitySet="tb_ShopMenu">
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="Position" ColumnName="Position" />
-          <ScalarProperty Name="Description" ColumnName="Description" />
-          <ScalarProperty Name="Alias" ColumnName="Alias" />
-          <ScalarProperty Name="Title" ColumnName="Title" />
-          <ScalarProperty Name="ShopId" ColumnName="ShopId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tb_News">
       <EntityTypeMapping TypeName="BanHangThucPhamModel.tb_News">
         <MappingFragment StoreEntitySet="tb_News">
@@ -278,6 +233,60 @@
           <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
           <ScalarProperty Name="Image" ColumnName="Image" />
           <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_CategoryProduct">
+      <EntityTypeMapping TypeName="BanHangThucPhamModel.tb_CategoryProduct">
+        <MappingFragment StoreEntitySet="tb_CategoryProduct">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CategoryProductId" ColumnName="CategoryProductId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="BanHangThucPhamModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="BanHangThucPhamModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BanHangThucPhamModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BanHangThucPhamModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BanHangThucPhamModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BanHangThucPhamModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BanHangThucPhamModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BanHangThucPhamModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BanHangThucPhamModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="tb_Contact">
+      <EntityTypeMapping TypeName="BanHangThucPhamModel.tb_Contact">
+        <MappingFragment StoreEntitySet="tb_Contact">
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

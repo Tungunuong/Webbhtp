@@ -11,23 +11,21 @@
         <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Blog" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Cart" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Comment_Home" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Contact" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Menu" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Order" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="BanHangThucPhamModel.tb_OrderDetail" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Product" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_ProductHome" Width="1.5" PointX="6.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_ProductSingle" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_ProductHome" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Setting" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BanHangThucPhamModel.tb_ShopNow_Home" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Slide" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Subscribe" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Wishlist" Width="1.5" PointX="0.75" PointY="11.75" IsExpanded="true" />
         <AssociationConnector Association="BanHangThucPhamModel.FK_tb_OrderDetail_tb_Order" ManuallyRouted="false" />
-        <AssociationConnector Association="BanHangThucPhamModel.FK_tb_Product_tb_ProductSingle" />
-        <AssociationConnector Association="BanHangThucPhamModel.FK_tb_ProductHome_tb_ProductSingle" />
-        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_ShopMenu" Width="1.5" PointX="11.375" PointY="11.75" />
         <EntityTypeShape EntityType="BanHangThucPhamModel.tb_News" Width="1.5" PointX="13.375" PointY="3.75" />
+        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_CategoryProduct" Width="1.5" PointX="3.375" PointY="14" />
+        <AssociationConnector Association="BanHangThucPhamModel.fk_CategoryProductId" />
+        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Contact" Width="1.5" PointX="7.375" PointY="12.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

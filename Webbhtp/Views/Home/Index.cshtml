@@ -114,12 +114,12 @@
                     <div class="col-md-6">
                         <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(../../Content/images/category-2.jpg);">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0"><a href="#">Fruits</a></h2>
+                                <h2 class="mb-0"><a href="~/Fruits">Fruits</a></h2>
                             </div>
                         </div>
                         <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(../../Content/images/category.jpg);">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0"><a href="#">Vegetables</a></h2>
+                                <h2 class="mb-0"><a href="~/Vegetables">Vegetables</a></h2>
                             </div>
                         </div>
                     </div>
@@ -128,12 +128,12 @@
             <div class="col-md-4">
                 <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(/Content/images/ctr3.jpg);">
                     <div class="text px-3 py-1">
-                        <h2 class="mb-0"><a href="#">Fresh meat</a></h2>
+                        <h2 class="mb-0"><a href="~/Freshmeat">Fresh meat</a></h2>
                     </div>
                 </div>
                 <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(../../Content/images/category-4.jpg);">
                     <div class="text px-3 py-1">
-                        <h2 class="mb-0"><a href="#">Organic food</a></h2>
+                        <h2 class="mb-0"><a href="~/Organicfood">Organic food</a></h2>
                     </div>
                 </div>
             </div>
@@ -171,7 +171,10 @@
                             <h3><a href="~/product_single"></a>@item.Title</h3>
                             <div class="d-flex">
                                 <div class="pricing">
-                                    <p class="price"><span>@item.Price</span></p>
+                                    <p class="price ">
+                                        <span class="mr-2 price-dc">@item.Price</span> 
+                                        <span class="">@item.PriceSale </span>
+                                    </p>
                                 </div>
                             </div>
                             <div class="bottom-area d-flex px-3">
@@ -311,7 +314,4 @@
             </div>
         </div>
     </div>
-</section>
-<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
-    @Html.Action("Partial_Subscribe", "Home")
 </section>

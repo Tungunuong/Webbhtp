@@ -75,21 +75,6 @@
     <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="IsActive" Type="Boolean" Nullable="false" />
   </EntityType>
-  <EntityType Name="tb_Contact">
-    <Key>
-      <PropertyRef Name="ContactId" />
-    </Key>
-    <Property Name="ContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="IsRead" Type="Int32" />
-    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-    <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-    <Property Name="ModifiedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="Phone" Type="Int32" />
-  </EntityType>
   <EntityType Name="tb_Menu">
     <Key>
       <PropertyRef Name="MenuId" />
@@ -140,7 +125,6 @@
     <Property Name="ProductdID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="Alias" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="ProductSingleId" Type="Int32" />
     <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="Price" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="PriceSale" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -148,7 +132,8 @@
     <Property Name="IsNew" Type="Boolean" Nullable="false" />
     <Property Name="IsBestSeller" Type="Boolean" Nullable="false" />
     <Property Name="IsActive" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="tb_ProductSingle" Relationship="BanHangThucPhamModel.FK_tb_Product_tb_ProductSingle" FromRole="tb_Product" ToRole="tb_ProductSingle" />
+    <Property Name="CategoryProductId" Type="Int32" />
+    <NavigationProperty Name="tb_CategoryProduct" Relationship="BanHangThucPhamModel.fk_CategoryProductId" FromRole="tb_Product" ToRole="tb_CategoryProduct" />
   </EntityType>
   <EntityType Name="tb_ProductHome">
     <Key>
@@ -165,21 +150,6 @@
     <Property Name="IsNew" Type="Boolean" Nullable="false" />
     <Property Name="IsBestSeller" Type="Boolean" Nullable="false" />
     <Property Name="IsActive" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="tb_ProductSingle" Relationship="BanHangThucPhamModel.FK_tb_ProductHome_tb_ProductSingle" FromRole="tb_ProductHome" ToRole="tb_ProductSingle" />
-  </EntityType>
-  <EntityType Name="tb_ProductSingle">
-    <Key>
-      <PropertyRef Name="ProductSingleId" />
-    </Key>
-    <Property Name="ProductSingleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="Price" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Quantity" Type="Int32" />
-    <Property Name="IsActive" Type="Boolean" Nullable="false" />
-    <NavigationProperty Name="tb_Product" Relationship="BanHangThucPhamModel.FK_tb_Product_tb_ProductSingle" FromRole="tb_ProductSingle" ToRole="tb_Product" />
-    <NavigationProperty Name="tb_ProductHome" Relationship="BanHangThucPhamModel.FK_tb_ProductHome_tb_ProductSingle" FromRole="tb_ProductSingle" ToRole="tb_ProductHome" />
   </EntityType>
   <EntityType Name="tb_Setting">
     <Key>
@@ -257,13 +227,11 @@
     <EntitySet Name="tb_Blog" EntityType="Self.tb_Blog" />
     <EntitySet Name="tb_Cart" EntityType="Self.tb_Cart" />
     <EntitySet Name="tb_Comment_Home" EntityType="Self.tb_Comment_Home" />
-    <EntitySet Name="tb_Contact" EntityType="Self.tb_Contact" />
     <EntitySet Name="tb_Menu" EntityType="Self.tb_Menu" />
     <EntitySet Name="tb_Order" EntityType="Self.tb_Order" />
     <EntitySet Name="tb_OrderDetail" EntityType="Self.tb_OrderDetail" />
     <EntitySet Name="tb_Product" EntityType="Self.tb_Product" />
     <EntitySet Name="tb_ProductHome" EntityType="Self.tb_ProductHome" />
-    <EntitySet Name="tb_ProductSingle" EntityType="Self.tb_ProductSingle" />
     <EntitySet Name="tb_Setting" EntityType="Self.tb_Setting" />
     <EntitySet Name="tb_ShopNow_Home" EntityType="Self.tb_ShopNow_Home" />
     <EntitySet Name="tb_Slide" EntityType="Self.tb_Slide" />
@@ -273,56 +241,44 @@
       <End Role="tb_Order" EntitySet="tb_Order" />
       <End Role="tb_OrderDetail" EntitySet="tb_OrderDetail" />
     </AssociationSet>
-    <AssociationSet Name="FK_tb_Product_tb_ProductSingle" Association="BanHangThucPhamModel.FK_tb_Product_tb_ProductSingle">
-      <End Role="tb_ProductSingle" EntitySet="tb_ProductSingle" />
+    <EntitySet Name="tb_News" EntityType="BanHangThucPhamModel.tb_News" />
+    <EntitySet Name="tb_CategoryProduct" EntityType="BanHangThucPhamModel.tb_CategoryProduct" />
+    <AssociationSet Name="fk_CategoryProductId" Association="BanHangThucPhamModel.fk_CategoryProductId">
+      <End Role="tb_CategoryProduct" EntitySet="tb_CategoryProduct" />
       <End Role="tb_Product" EntitySet="tb_Product" />
     </AssociationSet>
-    <AssociationSet Name="FK_tb_ProductHome_tb_ProductSingle" Association="BanHangThucPhamModel.FK_tb_ProductHome_tb_ProductSingle">
-      <End Role="tb_ProductSingle" EntitySet="tb_ProductSingle" />
-      <End Role="tb_ProductHome" EntitySet="tb_ProductHome" />
-    </AssociationSet>
-    <EntitySet Name="tb_ShopMenu" EntityType="BanHangThucPhamModel.tb_ShopMenu" />
-    <EntitySet Name="tb_News" EntityType="BanHangThucPhamModel.tb_News" />
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(BanHangThucPhamModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(BanHangThucPhamModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="tb_Contact" EntityType="BanHangThucPhamModel.tb_Contact" />
   </EntityContainer>
-  <Association Name="FK_tb_Product_tb_ProductSingle">
-    <End Type="BanHangThucPhamModel.tb_ProductSingle" Role="tb_ProductSingle" Multiplicity="0..1" />
-    <End Type="BanHangThucPhamModel.tb_Product" Role="tb_Product" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tb_ProductSingle">
-        <PropertyRef Name="ProductSingleId" />
-      </Principal>
-      <Dependent Role="tb_Product">
-        <PropertyRef Name="ProductSingleId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_tb_ProductHome_tb_ProductSingle">
-    <End Type="BanHangThucPhamModel.tb_ProductSingle" Role="tb_ProductSingle" Multiplicity="0..1" />
-    <End Type="BanHangThucPhamModel.tb_ProductHome" Role="tb_ProductHome" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="tb_ProductSingle">
-        <PropertyRef Name="ProductSingleId" />
-      </Principal>
-      <Dependent Role="tb_ProductHome">
-        <PropertyRef Name="ProductSingleId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="tb_ShopMenu">
-    <Key>
-      <PropertyRef Name="ShopId" />
-    </Key>
-    <Property Name="ShopId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="Alias" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-    <Property Name="Position" Type="Int32" />
-    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-    <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-    <Property Name="ModifiedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-    <Property Name="IsActive" Type="Boolean" Nullable="false" />
-  </EntityType>
   <EntityType Name="tb_News">
     <Key>
       <PropertyRef Name="NewsId" />
@@ -335,5 +291,57 @@
     <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_CategoryProduct">
+    <Key>
+      <PropertyRef Name="CategoryProductId" />
+    </Key>
+    <Property Name="CategoryProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Alias" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Icon" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Position" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tb_Product" Relationship="BanHangThucPhamModel.fk_CategoryProductId" FromRole="tb_CategoryProduct" ToRole="tb_Product" />
+  </EntityType>
+  <Association Name="fk_CategoryProductId">
+    <End Type="BanHangThucPhamModel.tb_CategoryProduct" Role="tb_CategoryProduct" Multiplicity="0..1" />
+    <End Type="BanHangThucPhamModel.tb_Product" Role="tb_Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_CategoryProduct">
+        <PropertyRef Name="CategoryProductId" />
+      </Principal>
+      <Dependent Role="tb_Product">
+        <PropertyRef Name="CategoryProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="tb_Contact">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsRead" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
   </EntityType>
 </Schema>

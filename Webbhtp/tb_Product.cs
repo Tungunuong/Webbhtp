@@ -17,7 +17,6 @@ namespace Webbhtp
         public int ProductdID { get; set; }
         public string Title { get; set; }
         public string Alias { get; set; }
-        public Nullable<int> ProductSingleId { get; set; }
         public string Image { get; set; }
         public string Price { get; set; }
         public string PriceSale { get; set; }
@@ -25,7 +24,8 @@ namespace Webbhtp
         public bool IsNew { get; set; }
         public bool IsBestSeller { get; set; }
         public bool IsActive { get; set; }
+        public Nullable<int> CategoryProductId { get; set; }
     
-        public virtual tb_ProductSingle tb_ProductSingle { get; set; }
+        public virtual tb_CategoryProduct tb_CategoryProduct { get; set; }
     }
 }

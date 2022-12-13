@@ -13,11 +13,6 @@ namespace Webbhtp.Content
         {
             return View();
         }
-        BanHangThucPhamEntities lab = new BanHangThucPhamEntities();
-        public ActionResult productsingle()
-        {
-            var item = lab.tb_ProductSingle.Where(i => i.IsActive).ToList();
-            return PartialView("productsingle", item);
-        }
+       
     }
 }
