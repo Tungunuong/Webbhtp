@@ -1,0 +1,154 @@
+﻿@model Webbhtp.tb_Product
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Thêm mới Sản Phẩm</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                    <li class="breadcrumb-item">Quản lý Sản Phẩm</li>
+                    <li class="breadcrumb-item active">Thêm mới Sản Phẩm</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+
+@using (Html.BeginForm("Create", "Product", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Left column-->
+            <div class="col-md-4">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Hình minh họa sản phẩm</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                        <div class="card-body">
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2">Ảnh</label>
+                                <div class="col-md-10">
+                                    <input type="file" name="Image" id="Image" required>
+                                    <br />
+                                    
+                                    <br />
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /.card-body -->
+
+
+                </div>
+            </div>
+            <!-- Right column-->
+            <div class="col-md-8">
+                <div class="card card-warning">
+                    <div class="card-header">
+                        <h3 class="card-title">Thông tin chính</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <form role="form">
+                            <div class="form-group">
+                                <label>Tên sản phẩm</label>
+                                @*<input type="text" class="form-control" placeholder="Tên sản phẩm">*@
+                                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label>Nhập lại tên sản phẩm</label>
+                                @*<input type="text" class="form-control" placeholder="Nhập lại tên sản phẩm">*@
+                                @Html.EditorFor(model => model.Alias, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.Alias, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label>Giá Bán</label>
+                                    @*<input type="text" class="form-control" placeholder="Giá bán">*@
+                                    @Html.EditorFor(model => model.PriceSale, new { htmlAttributes = new { @class = "form-control", @placeholder = "Giá bán", @required = "@required" } })
+                                    @Html.ValidationMessageFor(model => model.PriceSale, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Giá sale</label>
+                                    @*<input type="text" class="form-control" placeholder="Giá sale">*@
+                                    @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", @placeholder = "Giá sale", @required = "@required" } })
+                                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                                </div>
+                                <!-- text input -->
+
+                            </div>
+
+
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <!-- checkbox -->
+                                    <div class="form-group">
+                                        @* <div class="form-check">
+
+            <input class="form-check-input" type="checkbox" checked>
+            <label class="form-check-label">Isnew</label>
+
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" checked>
+          <label class="form-check-label">IsBestSeller</label>
+
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" checked>
+           <label class="form-check-label">IsActive</label>
+
+        </div>*@
+                                        @Html.EditorFor(model => model.IsNew)
+                                        <label class="form-check-label" for="exampleCheck1">IsNew</label>
+                                        @Html.ValidationMessageFor(model => model.IsNew, "", new { @class = "text-danger" })
+                                        <br>
+                                        @Html.EditorFor(model => model.IsBestSeller)
+                                    <label class="form-check-label" for="exampleCheck1">IsBestSeller</label>
+                                        @Html.ValidationMessageFor(model => model.IsBestSeller, "", new { @class = "text-danger" })
+                                        <br>
+                                        @Html.EditorFor(model => model.IsActive)
+                                    <label class="form-check-label" for="exampleCheck1">IsActive</label>
+                                        @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                            </div><div class="form-group">
+    @Html.LabelFor(model => model.CategoryProductId, "CategoryProductId", htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DropDownList("CategoryProductId", null, htmlAttributes: new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.CategoryProductId, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+}

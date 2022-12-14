@@ -1,0 +1,115 @@
+﻿@model IEnumerable<Webbhtp.tb_Product>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Quản lý Sản Phẩm</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="/admin">Home</a></li>
+                    <li class="breadcrumb-item active">Quản lý Menu</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">@Html.ActionLink("Create New", "Create")</h3>
+                    <div class="card-tools">
+                        @using (Html.BeginForm())
+                        {
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input id="searchText" type="text" name="searchText" class="form-control float-right" placeholder="Search">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Tên Sản Phẩm</th>
+                                <th>Giá Bán</th>
+                                <th>Giá Sale</th>
+                                <th>Trạng Thái</th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ int i = 1;}
+                            @foreach (var item in Model)
+                            {
+                                <tr id="tr_@item.ProductdID">
+                                    <td>@i</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Title)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.PriceSale)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.IsActive)</td>
+                                    <td>
+                                        @Html.ActionLink("Sửa", "Edit", new { id = item.ProductdID }) |
+                                        @*@Html.ActionLink("Details", "Details", new { id = item.MenuId }) |*@
+                                        <a href="" id="delete_@item.ProductdID" data-id="@item.ProductdID" class="btn-delete">Xóa</a>
+                                        @*@Html.ActionLink("Xóa", "Delete", new { id = item.MenuId })*@
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+        </div>
+    </div>
+</section>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $(".btn-delete").click(function () {
+                _id = $(this).data("id");
+                if (confirm("Bạn có đồng ý xóa Menu này không?")) {
+                    $.ajax({
+                        type: "POST",
+                        url: "/admin/product",
+                        data: { id: _id },
+                        cache: false,
+                        success: function (data) {
+                            if (data.status) {
+                                $("#tr_" + _id).remove();
+                                alert("Bạn đã xóa thành công");
+                            }
+                            else {
+                                alert("Bạn đã xóa không thành công");
+                            }
+                        }
+                    });
+                }
+            })
+        })
+    </script>
+}
+
