@@ -2614,6 +2614,11 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Home\TopMenu.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
+<<<<<<< Updated upstream
+=======
+    <Content Include="Views\product_single\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+>>>>>>> Stashed changes
     <Content Include="Views\Shop\Menushop.cshtml" />
     <Content Include="Views\Vegetables\Index.cshtml" />
     <Content Include="Views\Fruits\Index.cshtml" />
