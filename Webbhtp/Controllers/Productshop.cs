@@ -17,5 +17,10 @@ namespace Webbhtp.Controllers
         {
             return db.tb_Product.Where(x => x.IsActive).ToList();
         }
+
+        internal object ViewDetail(int productID)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

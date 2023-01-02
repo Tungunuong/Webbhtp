@@ -29,7 +29,6 @@ namespace Webbhtp
     
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<tb_About> tb_About { get; set; }
-        public virtual DbSet<tb_Adv> tb_Adv { get; set; }
         public virtual DbSet<tb_Blog> tb_Blog { get; set; }
         public virtual DbSet<tb_Cart> tb_Cart { get; set; }
         public virtual DbSet<tb_Comment_Home> tb_Comment_Home { get; set; }
@@ -42,10 +41,10 @@ namespace Webbhtp
         public virtual DbSet<tb_ShopNow_Home> tb_ShopNow_Home { get; set; }
         public virtual DbSet<tb_Slide> tb_Slide { get; set; }
         public virtual DbSet<tb_Subscribe> tb_Subscribe { get; set; }
-        public virtual DbSet<tb_Wishlist> tb_Wishlist { get; set; }
         public virtual DbSet<tb_News> tb_News { get; set; }
         public virtual DbSet<tb_CategoryProduct> tb_CategoryProduct { get; set; }
         public virtual DbSet<tb_Contact> tb_Contact { get; set; }
+        public virtual DbSet<tb_User> tb_User { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

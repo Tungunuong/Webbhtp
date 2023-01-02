@@ -25,6 +25,7 @@ namespace Webbhtp
         public bool IsBestSeller { get; set; }
         public bool IsActive { get; set; }
         public Nullable<int> CategoryProductId { get; set; }
+        public string describe { get; set; }
     
         public virtual tb_CategoryProduct tb_CategoryProduct { get; set; }
     }

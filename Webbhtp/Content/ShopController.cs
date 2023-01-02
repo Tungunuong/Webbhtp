@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Webbhtp.Controllers;
+using Webbhtp;
+using System.Xml.Linq;
+using System.Net;
 
 namespace Webbhtp.Content
 {
@@ -27,7 +30,16 @@ namespace Webbhtp.Content
             var item = myObj.tb_CategoryProduct.Where(i => i.IsActive).ToList();
             return PartialView("Menushop", item);
         }
+
+        public ActionResult Details(int? idx)
+        {
+            if (idx == null) return HttpNotFound();
+            else
+            {
+                var items = myObj.tb_Product.Find(idx);
+                return View("Detail", items);
+            }
+        }
+
     }
-
-
 }

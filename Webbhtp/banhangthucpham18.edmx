@@ -25,21 +25,6 @@
           <Property Name="Detail" Type="nvarchar(max)" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
-        <EntityType Name="tb_Adv">
-          <Key>
-            <PropertyRef Name="AdvId" />
-          </Key>
-          <Property Name="AdvId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Title" Type="nvarchar" MaxLength="250" />
-          <Property Name="Description" Type="nvarchar" MaxLength="500" />
-          <Property Name="Image" Type="nvarchar" MaxLength="500" />
-          <Property Name="Type" Type="int" />
-          <Property Name="Link" Type="nvarchar" MaxLength="500" />
-          <Property Name="CreatedDate" Type="datetime" />
-          <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
-          <Property Name="ModifiedDate" Type="datetime" />
-          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="150" />
-        </EntityType>
         <EntityType Name="tb_Blog">
           <Key>
             <PropertyRef Name="BlogId" />
@@ -177,6 +162,7 @@
           <Property Name="IsBestSeller" Type="bit" Nullable="false" />
           <Property Name="IsActive" Type="bit" Nullable="false" />
           <Property Name="CategoryProductId" Type="int" />
+          <Property Name="describe" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="tb_ProductHome">
           <Key>
@@ -234,21 +220,15 @@
           <Property Name="Email" Type="nvarchar" MaxLength="250" />
           <Property Name="CreateDate" Type="datetime" />
         </EntityType>
-        <EntityType Name="tb_Wishlist">
+        <EntityType Name="tb_User">
           <Key>
-            <PropertyRef Name="WishlistId" />
+            <PropertyRef Name="UserID" />
           </Key>
-          <Property Name="WishlistId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Close" Type="nvarchar" MaxLength="150" />
-          <Property Name="Image" Type="nvarchar" MaxLength="500" />
-          <Property Name="Description" Type="nvarchar" MaxLength="500" />
-          <Property Name="Detail" Type="nvarchar(max)" />
-          <Property Name="Price" Type="ntext" />
-          <Property Name="Quantity" Type="int" />
-          <Property Name="Total" Type="ntext" />
-          <Property Name="IsNew" Type="bit" Nullable="false" />
-          <Property Name="IsBestSeller" Type="bit" Nullable="false" />
-          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="fk_CategoryProductId">
           <End Role="tb_CategoryProduct" Type="Self.tb_CategoryProduct" Multiplicity="0..1" />
@@ -308,7 +288,6 @@
         <EntityContainer Name="BanHangThucPhamModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_About" EntityType="Self.tb_About" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tb_Adv" EntityType="Self.tb_Adv" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Blog" EntityType="Self.tb_Blog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Cart" EntityType="Self.tb_Cart" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_CategoryProduct" EntityType="Self.tb_CategoryProduct" Schema="dbo" store:Type="Tables" />
@@ -324,7 +303,7 @@
           <EntitySet Name="tb_ShopNow_Home" EntityType="Self.tb_ShopNow_Home" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Slide" EntityType="Self.tb_Slide" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tb_Subscribe" EntityType="Self.tb_Subscribe" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tb_Wishlist" EntityType="Self.tb_Wishlist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_User" EntityType="Self.tb_User" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="fk_CategoryProductId" Association="Self.fk_CategoryProductId">
             <End Role="tb_CategoryProduct" EntitySet="tb_CategoryProduct" />
             <End Role="tb_Product" EntitySet="tb_Product" />
@@ -357,21 +336,6 @@
           <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-        </EntityType>
-        <EntityType Name="tb_Adv">
-          <Key>
-            <PropertyRef Name="AdvId" />
-          </Key>
-          <Property Name="AdvId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Type" Type="Int32" />
-          <Property Name="Link" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
-          <Property Name="ModifiedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tb_Blog">
           <Key>
@@ -472,6 +436,7 @@
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <Property Name="CategoryProductId" Type="Int32" />
           <NavigationProperty Name="tb_CategoryProduct" Relationship="BanHangThucPhamModel.fk_CategoryProductId" FromRole="tb_Product" ToRole="tb_CategoryProduct" />
+          <Property Name="describe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tb_ProductHome">
           <Key>
@@ -529,22 +494,6 @@
           <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="CreateDate" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityType Name="tb_Wishlist">
-          <Key>
-            <PropertyRef Name="WishlistId" />
-          </Key>
-          <Property Name="WishlistId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Close" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <Property Name="Image" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-          <Property Name="Detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Quantity" Type="Int32" />
-          <Property Name="Total" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="IsNew" Type="Boolean" Nullable="false" />
-          <Property Name="IsBestSeller" Type="Boolean" Nullable="false" />
-          <Property Name="IsActive" Type="Boolean" Nullable="false" />
-        </EntityType>
         <Association Name="FK_tb_OrderDetail_tb_Order">
           <End Role="tb_Order" Type="Self.tb_Order" Multiplicity="0..1" />
           <End Role="tb_OrderDetail" Type="Self.tb_OrderDetail" Multiplicity="*" />
@@ -560,7 +509,6 @@
         <EntityContainer Name="BanHangThucPhamEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="tb_About" EntityType="Self.tb_About" />
-          <EntitySet Name="tb_Adv" EntityType="Self.tb_Adv" />
           <EntitySet Name="tb_Blog" EntityType="Self.tb_Blog" />
           <EntitySet Name="tb_Cart" EntityType="Self.tb_Cart" />
           <EntitySet Name="tb_Comment_Home" EntityType="Self.tb_Comment_Home" />
@@ -573,7 +521,6 @@
           <EntitySet Name="tb_ShopNow_Home" EntityType="Self.tb_ShopNow_Home" />
           <EntitySet Name="tb_Slide" EntityType="Self.tb_Slide" />
           <EntitySet Name="tb_Subscribe" EntityType="Self.tb_Subscribe" />
-          <EntitySet Name="tb_Wishlist" EntityType="Self.tb_Wishlist" />
           <AssociationSet Name="FK_tb_OrderDetail_tb_Order" Association="Self.FK_tb_OrderDetail_tb_Order">
             <End Role="tb_Order" EntitySet="tb_Order" />
             <End Role="tb_OrderDetail" EntitySet="tb_OrderDetail" />
@@ -615,6 +562,7 @@
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <EntitySet Name="tb_Contact" EntityType="BanHangThucPhamModel.tb_Contact" />
+          <EntitySet Name="tb_User" EntityType="BanHangThucPhamModel.tb_User" />
         </EntityContainer>
         <EntityType Name="tb_News">
           <Key>
@@ -681,6 +629,16 @@
           <Property Name="IsRead" Type="Boolean" Nullable="false" />
           <Property Name="CreatedDate" Type="DateTime" Precision="3" />
         </EntityType>
+        <EntityType Name="tb_User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -706,22 +664,6 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="Detail" ColumnName="Detail" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="tb_Adv">
-            <EntityTypeMapping TypeName="BanHangThucPhamModel.tb_Adv">
-              <MappingFragment StoreEntitySet="tb_Adv">
-                <ScalarProperty Name="AdvId" ColumnName="AdvId" />
-                <ScalarProperty Name="Title" ColumnName="Title" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Link" ColumnName="Link" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -815,6 +757,7 @@
           <EntitySetMapping Name="tb_Product">
             <EntityTypeMapping TypeName="BanHangThucPhamModel.tb_Product">
               <MappingFragment StoreEntitySet="tb_Product">
+                <ScalarProperty Name="describe" ColumnName="describe" />
                 <ScalarProperty Name="CategoryProductId" ColumnName="CategoryProductId" />
                 <ScalarProperty Name="ProductdID" ColumnName="ProductdID" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -890,23 +833,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tb_Wishlist">
-            <EntityTypeMapping TypeName="BanHangThucPhamModel.tb_Wishlist">
-              <MappingFragment StoreEntitySet="tb_Wishlist">
-                <ScalarProperty Name="WishlistId" ColumnName="WishlistId" />
-                <ScalarProperty Name="Close" ColumnName="Close" />
-                <ScalarProperty Name="Image" ColumnName="Image" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="Detail" ColumnName="Detail" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="IsNew" ColumnName="IsNew" />
-                <ScalarProperty Name="IsBestSeller" ColumnName="IsBestSeller" />
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tb_News">
             <EntityTypeMapping TypeName="BanHangThucPhamModel.tb_News">
               <MappingFragment StoreEntitySet="tb_News">
@@ -972,6 +898,17 @@
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_User">
+            <EntityTypeMapping TypeName="BanHangThucPhamModel.tb_User">
+              <MappingFragment StoreEntitySet="tb_User">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

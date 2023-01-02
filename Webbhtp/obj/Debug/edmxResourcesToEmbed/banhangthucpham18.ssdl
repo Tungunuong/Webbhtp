@@ -20,21 +20,6 @@
     <Property Name="Detail" Type="nvarchar(max)" />
     <Property Name="IsActive" Type="bit" Nullable="false" />
   </EntityType>
-  <EntityType Name="tb_Adv">
-    <Key>
-      <PropertyRef Name="AdvId" />
-    </Key>
-    <Property Name="AdvId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Title" Type="nvarchar" MaxLength="250" />
-    <Property Name="Description" Type="nvarchar" MaxLength="500" />
-    <Property Name="Image" Type="nvarchar" MaxLength="500" />
-    <Property Name="Type" Type="int" />
-    <Property Name="Link" Type="nvarchar" MaxLength="500" />
-    <Property Name="CreatedDate" Type="datetime" />
-    <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" />
-    <Property Name="ModifiedDate" Type="datetime" />
-    <Property Name="ModifiedBy" Type="nvarchar" MaxLength="150" />
-  </EntityType>
   <EntityType Name="tb_Blog">
     <Key>
       <PropertyRef Name="BlogId" />
@@ -172,6 +157,7 @@
     <Property Name="IsBestSeller" Type="bit" Nullable="false" />
     <Property Name="IsActive" Type="bit" Nullable="false" />
     <Property Name="CategoryProductId" Type="int" />
+    <Property Name="describe" Type="nvarchar(max)" />
   </EntityType>
   <EntityType Name="tb_ProductHome">
     <Key>
@@ -229,21 +215,15 @@
     <Property Name="Email" Type="nvarchar" MaxLength="250" />
     <Property Name="CreateDate" Type="datetime" />
   </EntityType>
-  <EntityType Name="tb_Wishlist">
+  <EntityType Name="tb_User">
     <Key>
-      <PropertyRef Name="WishlistId" />
+      <PropertyRef Name="UserID" />
     </Key>
-    <Property Name="WishlistId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Close" Type="nvarchar" MaxLength="150" />
-    <Property Name="Image" Type="nvarchar" MaxLength="500" />
-    <Property Name="Description" Type="nvarchar" MaxLength="500" />
-    <Property Name="Detail" Type="nvarchar(max)" />
-    <Property Name="Price" Type="ntext" />
-    <Property Name="Quantity" Type="int" />
-    <Property Name="Total" Type="ntext" />
-    <Property Name="IsNew" Type="bit" Nullable="false" />
-    <Property Name="IsBestSeller" Type="bit" Nullable="false" />
-    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <Association Name="fk_CategoryProductId">
     <End Role="tb_CategoryProduct" Type="Self.tb_CategoryProduct" Multiplicity="0..1" />
@@ -303,7 +283,6 @@
   <EntityContainer Name="BanHangThucPhamModelStoreContainer">
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_About" EntityType="Self.tb_About" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="tb_Adv" EntityType="Self.tb_Adv" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_Blog" EntityType="Self.tb_Blog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_Cart" EntityType="Self.tb_Cart" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_CategoryProduct" EntityType="Self.tb_CategoryProduct" Schema="dbo" store:Type="Tables" />
@@ -319,7 +298,7 @@
     <EntitySet Name="tb_ShopNow_Home" EntityType="Self.tb_ShopNow_Home" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_Slide" EntityType="Self.tb_Slide" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tb_Subscribe" EntityType="Self.tb_Subscribe" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="tb_Wishlist" EntityType="Self.tb_Wishlist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_User" EntityType="Self.tb_User" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="fk_CategoryProductId" Association="Self.fk_CategoryProductId">
       <End Role="tb_CategoryProduct" EntitySet="tb_CategoryProduct" />
       <End Role="tb_Product" EntitySet="tb_Product" />

@@ -156,9 +156,7 @@
     <Compile Include="Content\CheckoutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Content\Login\LoginController.cs" />
-    <Compile Include="Content\product_singleController.cs" />
     <Compile Include="Content\ShopController.cs" />
-    <Compile Include="Content\wishlistController.cs" />
     <Compile Include="Controllers\Blog.cs" />
     <Compile Include="Controllers\Blog_single.cs" />
     <Compile Include="Controllers\FreshmeatController.cs" />
@@ -185,9 +183,6 @@
       <DependentUpon>banhangthucpham18.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_About.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_Adv.cs">
       <DependentUpon>banhangthucpham18.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_Blog.cs">
@@ -235,7 +230,7 @@
     <Compile Include="tb_Subscribe.cs">
       <DependentUpon>banhangthucpham18.tt</DependentUpon>
     </Compile>
-    <Compile Include="tb_Wishlist.cs">
+    <Compile Include="tb_User.cs">
       <DependentUpon>banhangthucpham18.tt</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -2619,14 +2614,17 @@
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Home\TopMenu.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
-    <Content Include="Views\product_single\Index.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Shop\Menushop.cshtml" />
     <Content Include="Views\Vegetables\Index.cshtml" />
     <Content Include="Views\Fruits\Index.cshtml" />
     <Content Include="Views\Freshmeat\Index.cshtml" />
     <Content Include="Views\Organicfood\Index.cshtml" />
     <Content Include="Views\Shop\CategoryProduct.cshtml" />
+    <Content Include="Views\Home\Register.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Shop\Details.cshtml" />
+    <Content Include="Views\News\News_detail.cshtml" />
+    <Content Include="Views\News\News_other.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
