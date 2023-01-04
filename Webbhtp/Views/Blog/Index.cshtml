@@ -1,5 +1,4 @@
-﻿@model PagedList.IPagedList<Webbhtp.tb_Blog>
-@using PagedList.Mvc;
+﻿
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,23 +6,38 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="~/">Foods</a>
+        <a class="navbar-brand" href="~/">Vegefoods</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
 
-
-        @{Html.RenderAction("TopMenu", "Home");}
-
-
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a href="~/" class="nav-link">Home</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown04">
+                        <a class="dropdown-item" href="~/Shop">Shop</a>
+                        <a class="dropdown-item" href="~/wishlist">Wishlist</a>
+                        <a class="dropdown-item" href="~/product_single">Single Product</a>
+                        <a class="dropdown-item" href="~/cart">Cart</a>
+                        <a class="dropdown-item" href="~/checkout">Checkout</a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="~/About" class="nav-link">About</a></li>
+                <li class="nav-item active"><a href="~/Blog" class="nav-link">Blog</a></li>
+                <li class="nav-item"><a href="~/Contact" class="nav-link">Contact</a></li>
+                <li class="nav-item cta cta-colored"><a href="~/Cart" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+                <li class="nav-item cta cta-colored"><a href="~/Login" class="nav-link"><i class="ti-user"></i> Login</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
-
 <div class="hero-wrap hero-bread" style="background-image: url('../../Content/images/bg_1.jpg');">
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <p class="breadcrumbs"><span class="mr-2"><a href="~/Home">Home</a></span> <span>Blog</span></p>
+                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Blog</span></p>
                 <h1 class="mb-0 bread">Blog</h1>
             </div>
         </div>
@@ -33,41 +47,182 @@
 <section class="ftco-section ftco-degree-bg">
     <div class="container">
         <div class="row">
+            <div class="col-lg-8 ftco-animate">
                 <div class="row">
-                    @foreach (var item in Model)
-                    {
-                        <div class="col-md-12 d-flex ftco-animate fadeInUp ftco-animated">
-                            <div class="blog-entry align-self-stretch d-md-flex">
-                                <a href="blog-single.html" class="block-20" style="background-image: url('@item.Image');">
-                                </a>
-                                <div class="text d-block pl-md-4">
-                                    <div class="meta mb-3">
-                                        <div><a href="#">@item.CreatedDate</a></div>
-                                        <div><a href="#">@item.CreatedBy</a></div>
-                                        <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
-                                    </div>
-                                    <h3 class="heading"><a href="#">@item.Description</a></h3>
-                                    <p>@item.Detail</p>
-                                    <p><a href="@Url.Action("Blogs_detail", "Blog", new {idbv = item.BlogId} )" class="btn btn-primary py-2 px-3">Read more</a></p>
+                    <div class="col-md-12 d-flex ftco-animate">
+                        <div class="blog-entry align-self-stretch d-md-flex">
+                            <a href="blog-single.html" class="block-20" style="background-image: url('../../Content/images/image_1.jpg');">
+                            </a>
+                            <div class="text d-block pl-md-4">
+                                <div class="meta mb-3">
+                                    <div><a href="#">July 20, 2019</a></div>
+                                    <div><a href="#">Admin</a></div>
+                                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
                                 </div>
+                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">Read more</a></p>
                             </div>
                         </div>
-
-                    }
+                    </div>
+                    <div class="col-md-12 d-flex ftco-animate">
+                        <div class="blog-entry align-self-stretch d-md-flex">
+                            <a href="blog-single.html" class="block-20" style="background-image: url('../../Content/images/image_2.jpg');">
+                            </a>
+                            <div class="text d-block pl-md-4">
+                                <div class="meta mb-3">
+                                    <div><a href="#">July 20, 2019</a></div>
+                                    <div><a href="#">Admin</a></div>
+                                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                                </div>
+                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">Read more</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 d-flex ftco-animate">
+                        <div class="blog-entry align-self-stretch d-md-flex">
+                            <a href="blog-single.html" class="block-20" style="background-image: url('../../Content/images/image_3.jpg');">
+                            </a>
+                            <div class="text d-block pl-md-4">
+                                <div class="meta mb-3">
+                                    <div><a href="#">July 20, 2019</a></div>
+                                    <div><a href="#">Admin</a></div>
+                                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                                </div>
+                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">Read more</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 d-flex ftco-animate">
+                        <div class="blog-entry align-self-stretch d-md-flex">
+                            <a href="blog-single.html" class="block-20" style="background-image: url('../../Content/images/image_4.jpg');">
+                            </a>
+                            <div class="text d-block pl-md-4">
+                                <div class="meta mb-3">
+                                    <div><a href="#">July 20, 2019</a></div>
+                                    <div><a href="#">Admin</a></div>
+                                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                                </div>
+                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">Read more</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 d-flex ftco-animate">
+                        <div class="blog-entry align-self-stretch d-md-flex">
+                            <a href="blog-single.html" class="block-20" style="background-image: url('../../Content/images/image_5.jpg');">
+                            </a>
+                            <div class="text d-block pl-md-4">
+                                <div class="meta mb-3">
+                                    <div><a href="#">July 20, 2019</a></div>
+                                    <div><a href="#">Admin</a></div>
+                                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                                </div>
+                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">Read more</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 d-flex ftco-animate">
+                        <div class="blog-entry align-self-stretch d-md-flex">
+                            <a href="blog-single.html" class="block-20" style="background-image: url('../../Content/images/image_6.jpg');">
+                            </a>
+                            <div class="text d-block pl-md-4">
+                                <div class="meta mb-3">
+                                    <div><a href="#">July 20, 2019</a></div>
+                                    <div><a href="#">Admin</a></div>
+                                    <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 3</a></div>
+                                </div>
+                                <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                                <p><a href="blog-single.html" class="btn btn-primary py-2 px-3">Read more</a></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-        </div>
-        <div class="row mt-5">
-            <div class="col text-center">
-                <div class="block-27">
-                    <ul>
-                        <li>
-                            @Html.PagedListPager(Model, pageNumber => Url.Action("Index",
-                                            new { pageNumber }))
-                        </li>
+            </div> <!-- .col-md-8 -->
+            <div class="col-lg-4 sidebar ftco-animate">
+                <div class="sidebar-box">
+                    <form action="#" class="search-form">
+                        <div class="form-group">
+                            <span class="icon ion-ios-search"></span>
+                            <input type="text" class="form-control" placeholder="Search...">
+                        </div>
+                    </form>
+                </div>
+                <div class="sidebar-box ftco-animate">
+                    <h3 class="heading">Categories</h3>
+                    <ul class="categories">
+                        <li><a href="#">Vegetables <span>(12)</span></a></li>
+                        <li><a href="#">Fruits <span>(22)</span></a></li>
+                        <li><a href="#">Juice <span>(37)</span></a></li>
+                        <li><a href="#">Dries <span>(42)</span></a></li>
                     </ul>
                 </div>
+
+                <div class="sidebar-box ftco-animate">
+                    <h3 class="heading">Recent Blog</h3>
+                    <div class="block-21 mb-4 d-flex">
+                        <a class="blog-img mr-4" style="background-image: url(../../Content/images/image_1.jpg);"></a>
+                        <div class="text">
+                            <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                            <div class="meta">
+                                <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
+                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block-21 mb-4 d-flex">
+                        <a class="blog-img mr-4" style="background-image: url(../../Content/images/image_2.jpg);"></a>
+                        <div class="text">
+                            <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                            <div class="meta">
+                                <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
+                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block-21 mb-4 d-flex">
+                        <a class="blog-img mr-4" style="background-image: url(../../Content/images/image_3.jpg);"></a>
+                        <div class="text">
+                            <h3 class="heading-1"><a href="#">Even the all-powerful Pointing has no control about the blind texts</a></h3>
+                            <div class="meta">
+                                <div><a href="#"><span class="icon-calendar"></span> April 09, 2019</a></div>
+                                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
+                                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-box ftco-animate">
+                    <h3 class="heading">Tag Cloud</h3>
+                    <div class="tagcloud">
+                        <a href="#" class="tag-cloud-link">fruits</a>
+                        <a href="#" class="tag-cloud-link">tomatoe</a>
+                        <a href="#" class="tag-cloud-link">mango</a>
+                        <a href="#" class="tag-cloud-link">apple</a>
+                        <a href="#" class="tag-cloud-link">carrots</a>
+                        <a href="#" class="tag-cloud-link">orange</a>
+                        <a href="#" class="tag-cloud-link">pepper</a>
+                        <a href="#" class="tag-cloud-link">eggplant</a>
+                    </div>
+                </div>
+
+                <div class="sidebar-box ftco-animate">
+                    <h3 class="heading">Paragraph</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
+                </div>
             </div>
+
         </div>
     </div>
-</section>
+</section> <!-- .section -->

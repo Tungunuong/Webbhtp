@@ -15,11 +15,15 @@ namespace Webbhtp
     public partial class tb_Cart
     {
         public int CartId { get; set; }
-        public Nullable<int> UserId { get; set; }
-        public Nullable<int> ProductId { get; set; }
+        public string Close { get; set; }
+        public string Image { get; set; }
+        public string Description { get; set; }
+        public string Detail { get; set; }
+        public string Price { get; set; }
         public Nullable<int> Quantity { get; set; }
-    
-        public virtual tb_Product tb_Product { get; set; }
-        public virtual tb_User tb_User { get; set; }
+        public string Total { get; set; }
+        public bool IsNew { get; set; }
+        public bool IsBestSeller { get; set; }
+        public bool IsActive { get; set; }
     }
 }

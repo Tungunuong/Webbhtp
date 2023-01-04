@@ -21,18 +21,17 @@ namespace Webbhtp
         }
     
         public int OrderId { get; set; }
-        public Nullable<int> UserId { get; set; }
         public string Code { get; set; }
         public string CustomerName { get; set; }
         public string Phone { get; set; }
-        public string Email { get; set; }
         public string Address { get; set; }
+        public Nullable<int> TotalAmount { get; set; }
+        public Nullable<int> Quanlity { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         public string ModifiedBy { get; set; }
     
-        public virtual tb_User tb_User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_OrderDetail> tb_OrderDetail { get; set; }
     }

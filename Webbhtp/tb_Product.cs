@@ -14,27 +14,18 @@ namespace Webbhtp
     
     public partial class tb_Product
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tb_Product()
-        {
-            this.tb_Cart = new HashSet<tb_Cart>();
-        }
-    
         public int ProductdID { get; set; }
         public string Title { get; set; }
         public string Alias { get; set; }
+        public Nullable<int> ProductSingleId { get; set; }
         public string Image { get; set; }
-        public Nullable<double> Price { get; set; }
-        public Nullable<double> PriceSale { get; set; }
+        public string Price { get; set; }
+        public string PriceSale { get; set; }
         public Nullable<int> Quantity { get; set; }
         public bool IsNew { get; set; }
         public bool IsBestSeller { get; set; }
         public bool IsActive { get; set; }
-        public Nullable<int> CategoryProductId { get; set; }
-        public string describe { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tb_Cart> tb_Cart { get; set; }
-        public virtual tb_CategoryProduct tb_CategoryProduct { get; set; }
+        public virtual tb_ProductSingle tb_ProductSingle { get; set; }
     }
 }

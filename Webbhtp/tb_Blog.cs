@@ -14,12 +14,6 @@ namespace Webbhtp
     
     public partial class tb_Blog
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tb_Blog()
-        {
-            this.tb_Comment = new HashSet<tb_Comment>();
-        }
-    
         public int BlogId { get; set; }
         public string Image { get; set; }
         public string CreatedDate { get; set; }
@@ -27,9 +21,5 @@ namespace Webbhtp
         public string Description { get; set; }
         public string Detail { get; set; }
         public bool IsActive { get; set; }
-        public string content { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tb_Comment> tb_Comment { get; set; }
     }
 }
