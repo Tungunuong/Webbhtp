@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4e3852bee7654fab96108835f0af41d9" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="BanHangThucPhamModel.sysdiagrams" Width="1.5" PointX="14.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_About" Width="1.5" PointX="12.125" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Blog" Width="1.5" PointX="11.375" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Cart" Width="1.5" PointX="9.125" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_CategoryProduct" Width="1.5" PointX="7.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Comment" Width="1.5" PointX="11.625" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Contact" Width="1.5" PointX="14.625" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Menu" Width="1.5" PointX="15" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Order" Width="1.5" PointX="3" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_OrderDetail" Width="1.5" PointX="5.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Product" Width="1.5" PointX="6.375" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Setting" Width="1.5" PointX="9.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_ShopNow_Home" Width="1.5" PointX="18" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_Slide" Width="1.5" PointX="17.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BanHangThucPhamModel.tb_User" Width="1.5" PointX="3.5" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="BanHangThucPhamModel.fk_ten" ManuallyRouted="false" />
+        <AssociationConnector Association="BanHangThucPhamModel.fk_cart_product" ManuallyRouted="false" />
+        <AssociationConnector Association="BanHangThucPhamModel.fk_cart_user" ManuallyRouted="false" />
+        <AssociationConnector Association="BanHangThucPhamModel.fk_CategoryProductId" ManuallyRouted="false" />
+        <AssociationConnector Association="BanHangThucPhamModel.fk_order_user" ManuallyRouted="false" />
+        <AssociationConnector Association="BanHangThucPhamModel.FK_tb_OrderDetail_tb_Order" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

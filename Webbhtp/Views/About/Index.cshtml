@@ -2,35 +2,21 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var Commenthome = (List<Webbhtp.tb_Comment_Home>)ViewBag.Commenthome;
+
 }
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="~/">Vegefoods</a>
+        <a class="navbar-brand" href="~/">Foods</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
 
-        <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="~/" class="nav-link">Home</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown04">
-                        <a class="dropdown-item" href="~/Shop">Shop</a>
-                        <a class="dropdown-item" href="~/wishlist">Wishlist</a>
-                        <a class="dropdown-item" href="~/product_single">Single Product</a>
-                        <a class="dropdown-item" href="~/cart">Cart</a>
-                        <a class="dropdown-item" href="~/checkout">Checkout</a>
-                    </div>
-                </li>
-                <li class="nav-item active"><a href="~/About" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="~/Blog" class="nav-link">Blog</a></li>
-                <li class="nav-item"><a href="~/Contact" class="nav-link">Contact</a></li>
-                <li class="nav-item cta cta-colored"><a href="~/Cart" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
-                <li class="nav-item cta cta-colored"><a href="~/Login" class="nav-link"><i class="ti-user"></i> Login</a></li>
-            </ul>
-        </div>
+
+        @{Html.RenderAction("TopMenu", "Home");}
+
+
     </div>
 </nav>
 <div class="hero-wrap hero-bread" style="background-image: url('../../Content/images/bg_1.jpg');">
@@ -61,31 +47,14 @@
                 <div class="pb-md-5">
                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
                     <p>But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
-                    <p><a href="#" class="btn btn-primary">Shop now</a></p>
+                    <p><a href="~/Shop" class="btn btn-primary">Shop now</a></p>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
-    <div class="container py-4">
-        <div class="row d-flex justify-content-center py-5">
-            <div class="col-md-6">
-                <h2 style="font-size: 22px;" class="mb-0">Subcribe to our Newsletter</h2>
-                <span>Get e-mail updates about our latest shops and special offers</span>
-            </div>
-            <div class="col-md-6 d-flex align-items-center">
-                <form action="#" class="subscribe-form">
-                    <div class="form-group d-flex">
-                        <input type="text" class="form-control" placeholder="Enter email address">
-                        <input type="submit" value="Subscribe" class="submit px-3">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(../../Content/images/bg_3.jpg);">
     <div class="container">
@@ -144,7 +113,7 @@
                 <div class="carousel-testimony owl-carousel">
                     <div class="item">
                         <div class="testimony-wrap p-4 pb-5">
-                            <div class="user-img mb-5" style="background-image: url(../../Content/images/person_1.jpg)">
+                            <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
                                 <span class="quote d-flex align-items-center justify-content-center">
                                     <i class="icon-quote-left"></i>
                                 </span>
@@ -158,7 +127,7 @@
                     </div>
                     <div class="item">
                         <div class="testimony-wrap p-4 pb-5">
-                            <div class="user-img mb-5" style="background-image: url(../../Content/images/person_2.jpg)">
+                            <div class="user-img mb-5" style="background-image: url(images/person_2.jpg)">
                                 <span class="quote d-flex align-items-center justify-content-center">
                                     <i class="icon-quote-left"></i>
                                 </span>
@@ -172,7 +141,7 @@
                     </div>
                     <div class="item">
                         <div class="testimony-wrap p-4 pb-5">
-                            <div class="user-img mb-5" style="background-image: url(../../Content/images/person_3.jpg)">
+                            <div class="user-img mb-5" style="background-image: url(images/person_3.jpg)">
                                 <span class="quote d-flex align-items-center justify-content-center">
                                     <i class="icon-quote-left"></i>
                                 </span>
@@ -186,7 +155,7 @@
                     </div>
                     <div class="item">
                         <div class="testimony-wrap p-4 pb-5">
-                            <div class="user-img mb-5" style="background-image: url(../../Content/images/person_1.jpg)">
+                            <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
                                 <span class="quote d-flex align-items-center justify-content-center">
                                     <i class="icon-quote-left"></i>
                                 </span>
@@ -198,20 +167,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="testimony-wrap p-4 pb-5">
-                            <div class="user-img mb-5" style="background-image: url(../../Content/images/person_1.jpg)">
-                                <span class="quote d-flex align-items-center justify-content-center">
-                                    <i class="icon-quote-left"></i>
-                                </span>
-                            </div>
-                            <div class="text text-center">
-                                <p class="mb-5 pl-4 line">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                                <p class="name">Garreth Smith</p>
-                                <span class="position">System Analyst</span>
-                            </div>
-                        </div>
-                    </div>
+                   
                 </div>
             </div>
         </div>

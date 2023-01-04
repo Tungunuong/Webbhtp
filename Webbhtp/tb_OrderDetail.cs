@@ -15,9 +15,8 @@ namespace Webbhtp
     public partial class tb_OrderDetail
     {
         public int OrderDetailId { get; set; }
-        public Nullable<int> OrderId { get; set; }
+        public int OrderId { get; set; }
         public Nullable<int> ProductId { get; set; }
-        public Nullable<decimal> Price { get; set; }
         public Nullable<int> Quantity { get; set; }
     
         public virtual tb_Order tb_Order { get; set; }

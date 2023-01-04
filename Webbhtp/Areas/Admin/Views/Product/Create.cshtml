@@ -1,0 +1,123 @@
+﻿@model Webbhtp.tb_Product
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Thêm sản phẩm mới </h2>
+
+@using (Html.BeginForm("Create", "Product", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- left column -->
+            <div class="col-md-6">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Thông tin sản phẩm</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Tên sản phẩm</label>
+                                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control", @placeholder = "Tên sản phẩm", @required = "@required" } })
+                                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Tên thường gọi</label>
+                                @Html.EditorFor(model => model.Alias, new { htmlAttributes = new { @class = "form-control", @placeholder = "Tên thường gọi", @required = "@required" } })
+                                @Html.ValidationMessageFor(model => model.Alias, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Giá Bán</label>
+                                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control", @placeholder = "Giá Bán", @required = "@required" } })
+                                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Giá sale</label>
+                                @Html.EditorFor(model => model.PriceSale, new { htmlAttributes = new { @class = "form-control", @placeholder = "Giá sale", @required = "@required" } })
+                                @Html.ValidationMessageFor(model => model.PriceSale, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Số lượng</label>
+                                @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control", @placeholder = "Số lượng", @required = "@required" } })
+                                @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                            </div>
+                            <!-- checkbox -->
+                            <div class="form-group">
+                                <div class="form-check">
+                                    @Html.EditorFor(model => model.IsNew)
+                                    <label class="form-check-label" for="exampleCheck1">Trạng thái</label>
+                                    @Html.ValidationMessageFor(model => model.IsNew, "", new { @class = "text-danger" })                    
+                                </div>
+                                <div class="form-check">
+                                    @Html.EditorFor(model => model.IsBestSeller)
+                                    <label class="form-check-label" for="exampleCheck1">Trạng thái</label>
+                                    @Html.ValidationMessageFor(model => model.IsBestSeller, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-check">
+                                    @Html.EditorFor(model => model.IsActive)
+                                    <label class="form-check-label" for="exampleCheck1">Trạng thái</label>
+                                    @Html.ValidationMessageFor(model => model.IsActive, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-check">
+                                    @Html.EditorFor(model => model.IsHome)
+                                    <label class="form-check-label" for="exampleCheck1">Hiện ở Home</label>
+                                    @Html.ValidationMessageFor(model => model.IsHome, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <!-- Form Element sizes -->
+                <div class="card card-success">
+                    <div class="card-header">
+                        <h3 class="card-title">Mô tả</h3>
+                    </div>
+                    <div class="card-body">
+                        @Html.TextAreaFor(model => model.describe, new { @class = "form-control text-box single-line" })
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+
+              <div class="card card-warning">
+                    <div class="card-header">
+                        <h3 class="card-title">Tải hình ảnh</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        <input type="file" class="form-control-file" name="Image" id="Image" required>
+                                        <br />
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+    </div>
+</section>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

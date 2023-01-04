@@ -4,33 +4,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="~/">Vegefoods</a>
+        <a class="navbar-brand" href="~/">Foods</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
 
-        <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a href="~/" class="nav-link">Home</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown04">
-                        <a class="dropdown-item" href="~/Shop">Shop</a>
-                        <a class="dropdown-item" href="~/wishlist">Wishlist</a>
-                        <a class="dropdown-item" href="~/product_single">Single Product</a>
-                        <a class="dropdown-item" href="~/cart">Cart</a>
-                        <a class="dropdown-item" href="~/checkout">Checkout</a>
-                    </div>
-                </li>
-                <li class="nav-item"><a href="~/About" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="~/Blog" class="nav-link">Blog</a></li>
-                <li class="nav-item active"><a href="~/Contact" class="nav-link">Contact</a></li>
-                <li class="nav-item cta cta-colored"><a href="~/Cart" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
-                <li class="nav-item cta cta-colored"><a href="~/Login" class="nav-link"><i class="ti-user"></i> Login</a></li>
-            </ul>
-        </div>
+
+        @{Html.RenderAction("TopMenu", "Home");}
+
+
     </div>
 </nav>
 
@@ -38,7 +23,7 @@
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>Contact us</span></p>
+                <p class="breadcrumbs"><span class="mr-2"><a href="~/Home">Home</a></span> <span>Contact us</span></p>
                 <h1 class="mb-0 bread">Contact us</h1>
             </div>
         </div>
@@ -73,21 +58,18 @@
         <div class="row block-9">
             <div class="col-md-6 order-md-last d-flex">
                 <form action="#" class="bg-white p-5 contact-form">
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Name">
+                    <p>Fill out the form below to recieve a free and confidential.</p>
+                    @*<form action="post">*@
+                    <div>
+                        <input id="input_name" class="form-group form-control form_input input_name input_ph" type="text" name="name" placeholder="Name" required="required" data-error="Name is required.">
+                        <input id="input_phone" class="form-group form-control form_input input_website input_ph" type="text" name="name" placeholder="Phone" required="required" data-error="Phone is required.">
+                        <input id="input_email" class="form-group form-control form_input input_email input_ph" type="email" name="email" placeholder="Email" required="required" data-error="Valid email is required.">
+                        <textarea id="input_message" class="form-group form-control input_ph input_message" name="message" placeholder="Message" rows="3" required data-error="Please, write us a message."></textarea>
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Your Email">
+                    <div>
+                        <button id="review_submit" type="submit" class="form-group btn btn-primary py-3 px-5 red_button message_submit_btn trans_300" value="Submit">send message</button>
                     </div>
-                    <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Subject">
-                    </div>
-                    <div class="form-group">
-                        <textarea name="" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
-                    </div>
+                    @*</form>*@
                 </form>
 
             </div>
@@ -99,4 +81,37 @@
     </div>
 </section>
 
+
+
+@section script{
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCIwF204lFZg1y4kPSIhKaHEXMLYxxuMhA"></script>
+    <script src="~/Content/js/jquery-ui.js"></script>
+    <script src="~/Content/js/contact_custom.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#review_submit").click(function () {
+                _name = $("#input_name").val();
+                _phone = $("#input_phone").val();
+                _email = $("#input_email").val();
+                _message = $("#input_message").val();
+                $.ajax({
+                    type: "POST",
+                    url: "/contact/create",
+                    data: { name: _name, phone: _phone, email: _email, message: _message },
+                    cache: false,
+                    success: function (data) {
+                        if (data.status) {
+                            alert("Bạn đã gửi message thành công");
+                        }
+                        else {
+                            alert("Bạn đã gửi message không thành công");
+                        }
+                    }
+                });
+
+            })
+
+        })
+    </script>
+}
 
