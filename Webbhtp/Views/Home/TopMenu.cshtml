@@ -1,0 +1,35 @@
+﻿
+<div class="collapse navbar-collapse" id="ftco-nav">
+    <ul class="navbar-nav ml-auto">
+
+        @foreach (var item in Model)
+        {
+
+
+            <li class="nav-item"><a href="~/@item.Title" class="nav-link">@item.Title</a></li>
+
+        }
+
+        @if (Session["idUser"].Equals(" "))
+        {
+
+            <li class="nav-item cta cta-colored">
+                <a href="~/Home/Login" class="nav-link"><i class="ti-user"></i> Login</a>
+            </li>
+            <li class="nav-item cta cta-colored"><a href="~/Cart" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+
+        }
+        else
+        {
+            <li class="nav-item cta cta-colored"><a href="~/Cart" class="nav-link"><span class="icon-shopping_cart"></span>@TempData["cartt"]</a></li>
+
+            <li class="nav-item cta cta-colored">
+                <a href="#" class="nav-link"><i class="ti-user">@Session["FullName"]</i> </a>
+            </li>
+            <li class="nav-item cta cta-colored">
+                <a href="~/Home/Logout" class="nav-link"><i class="ti-user"></i> Logout</a>
+            </li>
+
+        }
+    </ul>
+</div>
