@@ -12,13 +12,15 @@ namespace Webbhtp
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_OrderDetail
+    public partial class tb_Comment
     {
-        public int OrderDetailId { get; set; }
-        public int OrderId { get; set; }
-        public Nullable<int> ProductId { get; set; }
-        public Nullable<int> Quantity { get; set; }
+        public int CmtId { get; set; }
+        public int BlogId { get; set; }
+        public string Name { get; set; }
+        public string Content { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
     
-        public virtual tb_Order tb_Order { get; set; }
+        public virtual tb_Blog tb_Blog { get; set; }
+
     }
 }

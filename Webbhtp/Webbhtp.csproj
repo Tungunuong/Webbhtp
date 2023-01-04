@@ -53,6 +53,12 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -134,36 +140,16 @@
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Areas\Admin\Controllers\tb_ProductController.cs" />
-    <Compile Include="banhangthucpham18.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>banhangthucpham18.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="banhangthucpham18.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
-    </Compile>
-    <Compile Include="banhangthucpham18.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>banhangthucpham18.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Content\AboutController.cs" />
-    <Compile Include="Content\BlogController.cs" />
-    <Compile Include="Content\Blog_singleController.cs" />
-    <Compile Include="Content\cartController.cs" />
-    <Compile Include="Content\CheckoutController.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
+    <Compile Include="Controllers\cartController.cs" />
+    <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Content\Login\LoginController.cs" />
-    <Compile Include="Content\ShopController.cs" />
-    <Compile Include="Controllers\Blog.cs" />
-    <Compile Include="Controllers\Blog_single.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Controllers\FreshmeatController.cs" />
     <Compile Include="Controllers\FruitsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\News.cs" />
-    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\OrganicfoodController.cs" />
     <Compile Include="Controllers\Producthome.cs" />
     <Compile Include="Controllers\Productshop.cs" />
@@ -172,79 +158,78 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagrams.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_About.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_Blog.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_Cart.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_CategoryProduct.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tb_Comment.cs">
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_Comment_Home.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_Contact.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_Menu.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
-    </Compile>
-    <Compile Include="tb_News.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_Order.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_OrderDetail.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_Product.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_ProductHome.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_Setting.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_ShopNow_Home.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_Slide.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_Subscribe.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="tb_User.cs">
-      <DependentUpon>banhangthucpham18.tt</DependentUpon>
+      <DependentUpon>Model.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="banhangthucpham18.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>banhangthucpham18.Context.cs</LastGenOutput>
-      <DependentUpon>banhangthucpham18.edmx</DependentUpon>
-    </Content>
-    <Content Include="banhangthucpham18.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>banhangthucpham18.edmx</DependentUpon>
-      <LastGenOutput>banhangthucpham18.cs</LastGenOutput>
-    </Content>
     <Content Include="Content\admin\dist\css\adminlte.css" />
     <Content Include="Content\admin\dist\css\adminlte.min.css" />
     <Content Include="Content\admin\dist\css\alt\adminlte.components.css" />
@@ -2267,10 +2252,21 @@
     <Content Include="Content\js\scrollax.min.js" />
     <Content Include="Content\Login\script.js" />
     <Content Include="Content\Login\style.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\fonts\ElegantIcons.eot" />
@@ -2424,13 +2420,6 @@
     <Content Include="Content\css\bootstrap\.DS_Store" />
     <Content Include="Content\css\css\.DS_Store" />
     <Content Include="Content\css\css\mixins\.DS_Store" />
-    <EntityDeploy Include="banhangthucpham18.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>banhangthucpham18.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="banhangthucpham18.edmx.diagram">
-      <DependentUpon>banhangthucpham18.edmx</DependentUpon>
-    </Content>
     <Content Include="Content\admin\dist\css\adminlte.css.map" />
     <Content Include="Content\admin\dist\css\adminlte.min.css.map" />
     <Content Include="Content\admin\dist\css\alt\adminlte.components.css.map" />
@@ -2582,6 +2571,13 @@
     <Content Include="Areas\Admin\Views\tb_Product\Details.cshtml" />
     <Content Include="Areas\Admin\Views\tb_Product\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\tb_Product\Index.cshtml" />
+    <EntityDeploy Include="Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2607,18 +2603,13 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\Blog\Index.cshtml" />
-    <Content Include="Views\Blog_single\Index.cshtml" />
     <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\cart\Index.cshtml" />
     <Content Include="Views\Checkout\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Home\TopMenu.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
-<<<<<<< Updated upstream
-=======
     <Content Include="Views\product_single\Index.cshtml" />
     <Content Include="Views\Login\Index.cshtml" />
->>>>>>> Stashed changes
     <Content Include="Views\Shop\Menushop.cshtml" />
     <Content Include="Views\Vegetables\Index.cshtml" />
     <Content Include="Views\Fruits\Index.cshtml" />
@@ -2628,8 +2619,11 @@
     <Content Include="Views\Home\Register.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\Shop\Details.cshtml" />
-    <Content Include="Views\News\News_detail.cshtml" />
-    <Content Include="Views\News\News_other.cshtml" />
+    <Content Include="Views\Blog\Blogs_other.cshtml" />
+    <Content Include="Views\Blog\Details.cshtml" />
+    <Content Include="Views\Shop\Other.cshtml" />
+    <Content Include="Views\Checkout\Success.cshtml" />
+    <Content Include="Views\Blog\Comment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
