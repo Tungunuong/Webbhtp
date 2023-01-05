@@ -43,7 +43,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Giá sale</label>
-                                @Html.EditorFor(model => model.PriceSale, new { htmlAttributes = new { @class = "form-control", @placeholder = "Giá sale", @required = "@required" } })
+                                @Html.EditorFor(model => model.PriceSale, new { htmlAttributes = new { @class = "form-control", @placeholder = "Giá sale" } })
                                 @Html.ValidationMessageFor(model => model.PriceSale, "", new { @class = "text-danger" })
                             </div>
                             <div class="form-group">
@@ -51,12 +51,17 @@
                                 @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control", @placeholder = "Số lượng", @required = "@required" } })
                                 @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
                             </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Phân loại</label>
+                                @Html.EditorFor(model => model.CategoryProductId, new { htmlAttributes = new { @class = "form-control", @placeholder = "Phân loại"} })
+                                @Html.ValidationMessageFor(model => model.CategoryProductId, "", new { @class = "text-danger" })
+                            </div>
                             <!-- checkbox -->
                             <div class="form-group">
                                 <div class="form-check">
                                     @Html.EditorFor(model => model.IsNew)
                                     <label class="form-check-label" for="exampleCheck1">Trạng thái</label>
-                                    @Html.ValidationMessageFor(model => model.IsNew, "", new { @class = "text-danger" })                    
+                                    @Html.ValidationMessageFor(model => model.IsNew, "", new { @class = "text-danger" })
                                 </div>
                                 <div class="form-check">
                                     @Html.EditorFor(model => model.IsBestSeller)
@@ -78,7 +83,7 @@
                     </form>
                 </div>
             </div>
-
+       
             <div class="col-md-6">
                 <!-- Form Element sizes -->
                 <div class="card card-success">
@@ -114,10 +119,13 @@
                     </div>
                 </div>
             </div>
+        </div>
     </div>
 </section>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <p class="btn btn-secondary">
+        @Html.ActionLink("Trở lại", "Index")
+    </p>
 </div>

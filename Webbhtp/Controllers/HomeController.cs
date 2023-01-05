@@ -63,8 +63,9 @@ namespace Webbhtp.Controllers
                     _user.IsAdmin = false;
                     db.Configuration.ValidateOnSaveEnabled = false;
                     db.tb_User.Add(_user);
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
+                    db.SaveChanges();    
+                    
+                    return RedirectToAction("~/Home/Login");
                 }
                 else
                 {
@@ -73,9 +74,9 @@ namespace Webbhtp.Controllers
                 }
 
 
-            }
+            } 
+            
             return View();
-
 
         }
 

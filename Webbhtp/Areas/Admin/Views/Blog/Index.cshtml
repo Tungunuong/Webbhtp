@@ -5,66 +5,62 @@
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Quản lý bài viết</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedBy)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Detail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.content)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedBy)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Detail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.content)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.BlogId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.BlogId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.BlogId })
-        </td>
-    </tr>
-}
+<div class="card">
+    <!-- /.card-header -->
+    <div class="card-body">
+        <h3 class="badge bg-success">@Html.ActionLink("Thêm bài viết mới", "Create")</h3>
 
-</table>
+        <table id="example1" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Ảnh</th>
+                    <th>Ngày tạo</th>
+                    <th>Người tạo</th>
+                    <th>Tiêu đề</th>
+                    <th>Mô tả</th>
+                    <th>Trạng thái</th>
+                    <th>Chi tiết</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    @{ int i = 1;}
+                    @foreach (var item in Model)
+                    {
+                    <tr id="tr_@item.BlogId">
+                        <td>@i</td>
+                        <td>
+                            @if (item.Image != null)
+                            {
+                                <img src="@Url.Content(item.Image)" width="113px" height="75px" alt="Ảnh" />
+
+                            }
+                            else
+                            {<span>NULL</span>}
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.CreatedDate)</td>
+                        <td>@Html.DisplayFor(modelItem => item.CreatedBy)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Detail)</td>
+                        <td>@Html.DisplayFor(modelItem => item.IsActive)</td>
+                        <td>@Html.DisplayFor(modelItem => item.content)</td>
+                        <td>
+                            @Html.ActionLink("Sửa", "Edit", new { id = item.BlogId }, new { @class = "badge bg-warning" }) |
+                            @*@Html.ActionLink("Details", "Details", new { id = item.MenuId }) |*@
+                            <a href="@Url.Action("Delete","Product", new {id = item.BlogId})" onclick="return confirm('Bạn có chắc chắn muốn xoá?');" data-id="@item.BlogId" class="badge bg-danger">Xóa</a>
+                            @*@Html.ActionLink("Xóa", "Delete", new { id = item.MenuId })*@
+                        </td>
+                    </tr>
+                    i++;
+                }
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+        <!-- /.card-body -->
+    </div>

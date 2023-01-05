@@ -1,20 +1,21 @@
-﻿@model IEnumerable<Webbhtp.tb_Product>
+﻿@model IEnumerable<Webbhtp.tb_Contact>
 
 @{
-    ViewBag.Title = "index";
+    ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
+
 
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Quản lý sản phẩm</h1>
+                <h1>Quản lý liên hệ</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="/admin">Home</a></li>
-                    <li class="breadcrumb-item active">Quản lý sản phẩm</li>
+                    <li class="breadcrumb-item active">Quản lý liên hệ</li>
                 </ol>
             </div>
         </div>
@@ -27,7 +28,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="badge bg-success">@Html.ActionLink("Thêm Sản phẩm mới", "Create")</h3>
+                    <h3 class="badge bg-success">@Html.ActionLink("Thêm liên hệ mới ", "Create")</h3>
                     <div class="card-tools">
                         @using (Html.BeginForm())
                         {
@@ -48,13 +49,12 @@
                         <thead>
                             <tr>
                                 <th>STT</th>
-                                <th>Tên sản phẩm</th>
-                                <th>Hình ảnh</th>
-                                <th>Giá</th>
-                                <th>Giá sale</th>
-                                <th>Số lượng</th>
-                                <th>Chi tiết</th>
+                                <th>Tên</th>
+                                <th>Số điện thoại</th>
+                                <th>Email</th>
+                                <th>Lời nhắn</th>
                                 <th>Trạng thái</th>
+                                <th>Ngày liên hệ</th>
                                 <th>Chức năng</th>
                             </tr>
                         </thead>
@@ -62,27 +62,19 @@
                             @{ int i = 1;}
                             @foreach (var item in Model)
                             {
-                                <tr id="tr_@item.ProductdID">
+                                <tr id="tr_@item.ContactId">
                                     <td>@i</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Title)</td>
-                                    <td>
-                                        @if (item.Image != null)
-                                        {
-                                            <img src="@Url.Content(item.Image)" width="113px" height="75px" alt="Ảnh" />
+                                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Phone)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.Message)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.IsRead)</td>
+                                    <td>@Html.DisplayFor(modelItem => item.CreatedDate)</td>
 
-                                        }
-                                        else
-                                        {<span>NULL</span>}
-                                    </td>
-                                    <td>@Html.DisplayFor(modelItem => item.Price)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.PriceSale)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.Quantity)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.describe)</td>
-                                    <td>@Html.DisplayFor(modelItem => item.IsActive)</td>
                                     <td>
-                                        @Html.ActionLink("Sửa", "Edit", new { id = item.ProductdID }, new { @class = "badge bg-warning" }) |
+                                        @Html.ActionLink("Sửa", "Edit", new { id = item.ContactId }, new { @class = "badge bg-warning" }) |
                                         @*@Html.ActionLink("Details", "Details", new { id = item.MenuId }) |*@
-                                        <a href="@Url.Action("Delete","Product", new {id = item.ProductdID})" onclick="return confirm('Bạn có chắc chắn muốn xoá?');" data-id="@item.ProductdID" class="badge bg-danger">Xóa</a>
+                                        <a href="@Url.Action("DeleteConfirmed","Menu", new {id = item.ContactId})" onclick="return confirm('Bạn có chắc chắn muốn xoá?');" data-id="@item.ContactId" class="badge bg-danger">Xóa</a>
                                         @*@Html.ActionLink("Xóa", "Delete", new { id = item.MenuId })*@
                                     </td>
                                 </tr>
@@ -97,4 +89,3 @@
         </div>
     </div>
 </section>
-

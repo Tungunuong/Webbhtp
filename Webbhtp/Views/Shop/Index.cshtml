@@ -57,7 +57,17 @@
                             @Html.ActionLink(item.Title, "Details", "Shop", new { @Id = item.ProductdID }, null);
                             <div class="d-flex">
                                 <div class="pricing">
-                                    <p class="price"><span class="mr-2 price-dc">@item.Price</span><span class="price-sale">@item.PriceSale</span></p>
+                                    <p class="price">
+                                        @if (item.PriceSale == null)
+                                        {
+                                            <span>$@item.Price</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="mr-2 price-dc">$120.00</span><span class="price-sale">$80.00</span>
+                                        }
+
+                                    </p>
                                 </div>
                             </div>
                             <div class="bottom-area d-flex px-3">

@@ -137,9 +137,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\BlogController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CommentController.cs" />
+    <Compile Include="Areas\Admin\Controllers\tb_ContactController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\Admin\Controllers\MenuController.cs" />
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\tb_ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="BanHangThucPhamEntities.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2566,6 +2571,31 @@
     <Content Include="Areas\Admin\Views\Blog\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Blog\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Blog\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Comment\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Comment\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Comment\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Comment\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Comment\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\tb_Contact\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\tb_Contact\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\tb_Contact\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\tb_Contact\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\tb_Contact\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\tb_Product\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\tb_Product\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\tb_Product\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\tb_Product\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\tb_Product\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2596,7 +2626,6 @@
     <Content Include="Views\Checkout\Index.cshtml" />
     <Content Include="Views\Contact\Index.cshtml" />
     <Content Include="Views\Home\TopMenu.cshtml" />
-    <Content Include="Views\product_single\Index.cshtml" />
     <Content Include="Views\Shop\Menushop.cshtml" />
     <Content Include="Views\Vegetables\Index.cshtml" />
     <Content Include="Views\Fruits\Index.cshtml" />

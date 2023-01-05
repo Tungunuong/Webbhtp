@@ -1,0 +1,82 @@
+﻿@model Webbhtp.tb_Comment
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sửa bình luận </h2>
+
+@using (Html.BeginForm("Edit", "Comment", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-6">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Thông tin bình luận</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Tên</label>
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Tên", @required = "@required" } })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    <div class="card-body">
+                                        <label for="exampleInputEmail1">Nội dung</label>
+                                        @Html.TextAreaFor(model => model.Content, new { @class = "form-control text-box single-line" })
+                                    </div>
+                                    <!-- /.card-body -->
+                                </div>
+                                <!-- checkbox -->
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Thời gian bình luận</label>
+                                    @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", @placeholder = "Thời gian bình luận", @required = "@required" } })
+                                    @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card card-warning">
+                    <div class="card-header">
+                        <h3 class="card-title">Tải hình ảnh</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <div class="col-md-10">
+                                        <input type="file" class="form-control-file" name="Image" id="Image" required>
+                                        <br />
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+<div>
+    <p class="btn btn-secondary">
+        @Html.ActionLink("Trở lại", "Index")
+    </p>
+</div>
